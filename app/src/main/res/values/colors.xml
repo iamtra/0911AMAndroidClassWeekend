@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="dark_blue">#32776F</color>
+    <color name="blue_900">#233647</color>
+    <color name="milk">#FFFDFDFD</color>
+
+    <color name="icon_recharge">#2F7D6D</color>
+    <color name="bg_recharge">#DFF2EC</color>
+
+    <color name="icon_bill_pay">#C9A23F</color>
+    <color name="bg_bill_pay">#FFF4D6</color>
+
+    <color name="icon_bank_transfer">#C46A6A</color>
+    <color name="bg_bank_transfer">#F8E3E3</color>
+
+    <color name="icon_savings">#6C63B8</color>
+    <color name="bg_savings">#ECEBFA</color>
+
+    <color name="icon_electricity">#C65C5C</color>
+    <color name="bg_electricity">#F7E2E2</color>
+
+    <color name="icon_movie">#5A5ACD</color>
+    <color name="bg_movie">#E9E9FA</color>
+
+    <color name="icon_add_money">#2F7F6F</color>
+    <color name="bg_add_money">#DEF3EC</color>
+
+    <color name="icon_others">#D4B04C</color>
+    <color name="bg_others">#FFF3D4</color>
+
+
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Pheaktra App</string>
+    <string name="lbl_continue">Continue</string>
+    <string name="lbl_content">elevation effect by default. It is a filled button that includes a shadow.</string>
+</resources>
