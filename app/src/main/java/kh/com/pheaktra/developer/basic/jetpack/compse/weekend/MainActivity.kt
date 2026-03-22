@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.screen.HomeScreen
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.screen.ScreenAccount
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.screen.ScreenCardView
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.screen.ScreenCarousel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.screen.ScreenCheckBox
@@ -56,7 +57,8 @@ class MainActivity : ComponentActivity() {
 //            ScreenBottomBar()
 //            ScreenBottomBarWithFloating()
 //            ScreenToolsTips()
-            ScreenInvoice()
+//            ScreenInvoice()
+            ScreenAccount()
         }
     }
 }
