@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.components.ScreenAccount
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home.ScreenHome
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation.AppNavigation
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 
 
@@ -39,7 +40,8 @@ class MainActivity : ComponentActivity() {
 //            ScreenToolsTips()
 //            ScreenInvoice()
 //                ScreenAccount()
-                ScreenHome()
+//                ScreenHome()
+                AppNavigation()
 
             }
         }

@@ -6,9 +6,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -19,15 +20,18 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenHome(
-    homeVM: HomeVM = HomeVM()
+    homeVM: HomeVM = HomeVM(),
+    onClickNotification: () -> Unit = {}
 ) {
     val message by homeVM.message.collectAsStateWithLifecycle()
 
@@ -43,6 +47,16 @@ fun ScreenHome(
             TopAppBar(
                 title = {
                     Text("My App")
+                },
+                actions = {
+                    IconButton(
+                        onClick = onClickNotification
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_notifications_none),
+                            contentDescription = null
+                        )
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
