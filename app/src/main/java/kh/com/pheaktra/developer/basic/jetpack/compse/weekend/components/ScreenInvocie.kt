@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.screen
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.components
 
 import android.content.Context
 import android.content.Intent

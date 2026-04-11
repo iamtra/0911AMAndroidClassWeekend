@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.screen
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

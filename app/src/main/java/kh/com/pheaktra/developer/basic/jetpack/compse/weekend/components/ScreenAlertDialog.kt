@@ -1,14 +1,10 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.screen
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.components
 
 import android.widget.Toast
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -18,14 +14,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Send
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -50,14 +40,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenMenu() {
-    var expanded by remember { mutableStateOf(false) }
-    val menuList = listOf<String>("Setting", "Notifications", "Profile")
+fun ScreenAlertDialog() {
+    var isShow by remember { mutableStateOf(false) }
+    val context = LocalContext.current
     Scaffold(
         modifier = Modifier.navigationBarsPadding(),
         topBar = {
@@ -77,52 +66,14 @@ fun ScreenMenu() {
                 title = {
                     Text(
                         modifier = Modifier.fillMaxWidth(),
-                        text = "Menu",
+                        text = "Alert Dialog",
                         fontSize = 16.sp,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.W900,
                     )
                 },
                 actions = {
-                    IconButton(
-                        onClick = {
-                            expanded = !expanded
-                        }
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.MoreVert,
-                            contentDescription = "Menu Icon"
-                        )
-                        DropdownMenu(
-                            expanded = expanded,
-                            onDismissRequest = {
-                                expanded = false
-                            }
-                        ) {
-                            for (menu in menuList) {
-                                DropdownMenuItem(
-                                    leadingIcon = {
-                                        Icon(
-                                            imageVector = Icons.Default.Settings,
-                                            contentDescription = "Menu Icon"
-                                        )
-                                    },
-                                    trailingIcon = {
-                                        Icon(
-                                            imageVector = Icons.Default.Send,
-                                            contentDescription = "Menu Icon"
-                                        )
-                                    },
-                                    text = {
-                                        Text(menu)
-                                    },
-                                    onClick = {
-                                        println("You clicked $menu")
-                                    }
-                            )
-                            }
-                        }
-                    }
+
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = colorResource(R.color.purple_200),
@@ -131,6 +82,24 @@ fun ScreenMenu() {
                 )
             )
         },
+        bottomBar = {
+            FilledTonalButton(
+                onClick = {
+                    isShow = true
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight(),
+                enabled = true,
+                colors = ButtonDefaults.filledTonalButtonColors(
+                    containerColor = colorResource(R.color.purple_200)
+                )
+            ) {
+                Text(
+                    text = "Show Alert Dialog"
+                )
+            }
+        }
     ) {
         Column(
             modifier = Modifier
@@ -143,7 +112,40 @@ fun ScreenMenu() {
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-
+            if (isShow) {
+                AlertDialog(
+                    shape = RoundedCornerShape(0.dp),
+                    containerColor = colorResource(R.color.purple_200),
+                    icon = {
+                        Icon(Icons.Filled.Info, contentDescription = "Info Icon")
+                    },
+                    title = {
+                        Text(text = "Delete Users")
+                    },
+                    text = {
+                        Text(text = "Are you sure do really one to delete this user?")
+                    },
+                    onDismissRequest = {
+                        isShow = false
+                    },
+                    confirmButton = {
+                        TextButton(
+                            onClick = {
+                                isShow = false
+                                val toast = Toast.makeText(context, "User delete successfully.", Toast.LENGTH_SHORT)
+                                toast.show()
+                            }
+                        ) {
+                            Text("Yes")
+                        }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { isShow = false }) {
+                            Text("No")
+                        }
+                    }
+                )
+            }
         }
     }
 }
@@ -151,6 +153,6 @@ fun ScreenMenu() {
 
 @Preview(showBackground = true)
 @Composable
-fun ScreenMenuPreview() {
-    ScreenMenu()
+fun ScreenAlertDialogPreview() {
+    ScreenAlertDialog()
 }
