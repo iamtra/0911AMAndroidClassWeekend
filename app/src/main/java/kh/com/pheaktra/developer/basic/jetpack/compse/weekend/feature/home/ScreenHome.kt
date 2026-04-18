@@ -25,7 +25,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.LoadingUtil
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,12 +35,26 @@ fun ScreenHome(
     homeVM: HomeVM = HomeVM(),
     onClickNotification: () -> Unit = {}
 ) {
-    val message by homeVM.message.collectAsStateWithLifecycle()
+    val messageUiState by homeVM.messageUiState.collectAsStateWithLifecycle()
 
-    LaunchedEffect(Unit) {
-        homeVM.getMessage()
+    LaunchedEffect(messageUiState) {
+        when(val state = messageUiState) {
+            is BaseUiState.Loading, BaseUiState.None -> LoadingUtil.showLoading()
+
+            is BaseUiState.Error -> {
+                LoadingUtil.hideLoading()
+                println("Error: ${state.message}")
+            }
+
+            is BaseUiState.Success -> LoadingUtil.hideLoading()
+
+            is BaseUiState.ErrorException -> {
+                LoadingUtil.hideLoading()
+                println("Error: ${state.message}")
+            }
+
+        }
     }
-
 
     Scaffold(
         modifier = Modifier
@@ -64,24 +80,30 @@ fun ScreenHome(
             )
         },
     ) { paddingValues ->
-        LazyColumn(
-            modifier = Modifier
-                .padding(paddingValues)
-                .fillMaxWidth()
-        ) {
-            items(message.size) {
-                Row(
+        when(val state = messageUiState) {
+            is BaseUiState.Success -> {
+                LazyColumn(
                     modifier = Modifier
-                        .height(56.dp)
-                        .fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
+                        .padding(paddingValues)
+                        .fillMaxWidth()
                 ) {
-                    Text(
-                        text = message[it],
-                    )
+                    items(state.data.size) {
+                        Row(
+                            modifier = Modifier
+                                .height(56.dp)
+                                .fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = state.data[it],
+                            )
+                        }
+                        HorizontalDivider()
+                    }
                 }
-                HorizontalDivider()
             }
+
+            else -> {}
         }
     }
 }
@@ -90,7 +112,7 @@ fun ScreenHome(
 @Composable
 @Preview(showBackground = true)
 fun ScreenHomePreview() {
-    BaseTheme() {
+    BaseTheme {
         ScreenHome()
     }
 }

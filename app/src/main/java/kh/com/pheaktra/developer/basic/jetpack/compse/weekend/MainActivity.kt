@@ -4,11 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.components.ScreenAccount
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home.ScreenHome
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation.AppNavigation
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
-
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.LoadingContent
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.LoadingUtil
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,33 +15,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BaseTheme {
-//            HomeScreen()
-//            ScreenCardView()
-//            ScreenCarousel()
-//            ScreenCheckBox()
-//            ScreenChip()
-//            ScreenDatePicker()
-//            ScreenAlertDialog()
-//            ScreenDialog()
-//            ScreenCircleProgressIndicator()
-//            ScreenMenu()
-//            ScreenBottomNavigationBar()
-//            ScreenNavigationDrawer()
-//            ScreenRadio()
-//            ScreenBottomSheet()
-//            ScreenSlider()
-//            ScreenSnackbar()
-//            ScreenSwitch()
-//            ScreenTabs()
-//            ScreenTextFiled()
-//            ScreenBottomBar()
-//            ScreenBottomBarWithFloating()
-//            ScreenToolsTips()
-//            ScreenInvoice()
-//                ScreenAccount()
-//                ScreenHome()
+                if (LoadingUtil.isLoading.value) {
+                    LoadingContent()
+                }
                 AppNavigation()
-
             }
         }
     }
