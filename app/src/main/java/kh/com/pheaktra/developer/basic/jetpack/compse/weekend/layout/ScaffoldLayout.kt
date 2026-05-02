@@ -39,8 +39,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.components.HomeScreen
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.components.ScreenAccount
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home.HomeScreen
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.account.ScreenAccount
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.NavigationItemModel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 

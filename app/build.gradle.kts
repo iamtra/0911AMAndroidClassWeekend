@@ -7,9 +7,7 @@ plugins {
 
 android {
     namespace = "kh.com.pheaktra.developer.basic.jetpack.compse.weekend"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "kh.com.pheaktra.developer.basic.jetpack.compse.weekend"
@@ -57,6 +55,8 @@ dependencies {
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.coil.compose)
 
+    // Implement local module
+    implementation(project(":core"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

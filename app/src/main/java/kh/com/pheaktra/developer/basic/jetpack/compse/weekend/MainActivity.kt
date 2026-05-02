@@ -22,5 +22,25 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+//        println("====> onPause")
+    }
+
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+//        println("====> onUserLeaveHint")
+    }
+
+    override fun onStop() {
+        super.onStop()
+//        println("====> onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        println("====> onDestroy")
+    }
 }
 

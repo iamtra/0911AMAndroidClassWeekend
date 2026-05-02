@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "StartJetackAppWeekend911AM"
+rootProject.name = "911AMAdvanceJetpackCompose"
 include(":app")
- 
+include(":core")
