@@ -72,9 +72,7 @@ fun ScreenRadio() {
                         fontWeight = FontWeight.W900,
                     )
                 },
-                actions = {
-
-                },
+                actions = { },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = colorResource(R.color.purple_200),
                     actionIconContentColor = Color.Blue,
@@ -130,7 +128,6 @@ fun ScreenRadio() {
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable

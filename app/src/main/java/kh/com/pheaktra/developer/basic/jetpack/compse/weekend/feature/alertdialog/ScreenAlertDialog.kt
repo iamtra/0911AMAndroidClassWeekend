@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.alert_dialog
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.alertdialog
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement

@@ -7,7 +7,7 @@ import androidx.compose.runtime.remember
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.account.ScreenAccount
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.alert_dialog.ScreenAlertDialog
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.alertdialog.ScreenAlertDialog
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_bar.ScreenBottomBar
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_bar_with_floating.ScreenBottomBarWithFloating
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_navigation_bar.ScreenBottomNavigationBar
@@ -32,6 +32,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.switch.Scr
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.tab.ScreenTabs
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.textfield.ScreenTextFiled
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.tooltip.ScreenToolsTips
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.userapi.ScreenUserApi
 
 // Define keys that will identify content
 data object Home
@@ -60,6 +61,8 @@ data object TextField
 data object BottomBar
 data object Account
 data object Invoice
+
+data object UserApi
 
 @Composable
 fun AppNavigation() {
@@ -204,6 +207,14 @@ fun AppNavigation() {
 
                 is Invoice -> NavEntry(key) {
                     ScreenInvoice(
+                        onBack = {
+                            onBack()
+                        }
+                    )
+                }
+
+                is UserApi -> NavEntry(key) {
+                    ScreenUserApi(
                         onBack = {
                             onBack()
                         }

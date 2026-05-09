@@ -62,12 +62,16 @@ fun ScreenInvoice(
                 onClick = {
                     val bitmap = generateInvoiceBitmap(invoiceText.value)
 //                    saveBitmapToDocumentsAndOpen(context, bitmap, "invoice_${System.currentTimeMillis()}.png")
-                    saveAndShareInvoice(context, bitmap, "invoice_${System.currentTimeMillis()}.png")
+                    saveAndShareInvoice(
+                        context,
+                        bitmap,
+                        "invoice_${System.currentTimeMillis()}.png"
+                    )
                 }
             ) {
                 Text("Save Invoice as Image")
             }
-}
+        }
     ) { padding ->
         Column(
             modifier = Modifier.padding(paddingValues = padding)
@@ -138,10 +142,16 @@ fun generateInvoiceBitmap(text: String): Bitmap {
 }
 
 
-fun saveBitmapToDocumentsAndOpen(context: Context, bitmap: Bitmap, fileName: String, folderName: String = "Invoices") {
+fun saveBitmapToDocumentsAndOpen(
+    context: Context,
+    bitmap: Bitmap,
+    fileName: String,
+    folderName: String = "Invoices"
+) {
     try {
         // Get Documents folder path
-        val documentsDir = File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), folderName)
+        val documentsDir =
+            File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), folderName)
 
         // Create folder if it doesn't exist
         if (!documentsDir.exists()) {
@@ -174,7 +184,8 @@ fun saveBitmapToDocumentsAndOpen(context: Context, bitmap: Bitmap, fileName: Str
         if (intent.resolveActivity(context.packageManager) != null) {
             context.startActivity(intent)
         } else {
-            Toast.makeText(context, "Cannot open folder. Use a file manager.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Cannot open folder. Use a file manager.", Toast.LENGTH_SHORT)
+                .show()
         }
 
     } catch (e: Exception) {
@@ -191,7 +202,8 @@ fun saveAndShareInvoice(
 ) {
     try {
         // Create Documents folder
-        val documentsDir = File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), folderName)
+        val documentsDir =
+            File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), folderName)
         if (!documentsDir.exists()) documentsDir.mkdirs()
 
         // Save bitmap
