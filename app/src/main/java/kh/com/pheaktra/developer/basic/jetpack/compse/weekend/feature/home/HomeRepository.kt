@@ -183,6 +183,13 @@ class HomeRepository {
             "Running api using retrofit 2",
             "https://img.icons8.com/fluency/48/invoice.png",
             UserApi
+        ),
+        ComponentModel(
+            25,
+            "POST Notification",
+            "Notification",
+            "https://img.icons8.com/fluency/48/bell.png",
+            PostNotification
         )
     )
 

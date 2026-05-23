@@ -2,4 +2,6 @@
     <string name="app_name">Pheaktra App</string>
     <string name="lbl_continue">Continue</string>
     <string name="lbl_content">elevation effect by default. It is a filled button that includes a shadow.</string>
+    <string name="channel_description">Notification channel description</string>
+    <string name="channel_name">Pheaktra_App_Notification</string>
 </resources>

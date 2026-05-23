@@ -1,0 +1,30 @@
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation
+
+data object Home
+data object Notification
+data object CardView
+data object Button
+data object CheckBox
+data object Radio
+data object Switch
+data object Slider
+data object Chip
+data object Dialog
+data object AlertDialog
+data object BottomSheet
+data object Snackbar
+data object Tooltip
+data object Menu
+data object NavigationDrawer
+data object BottomNavigationBar
+data object BottomBarWithFloating
+data object CircleProgressIndicator
+data object Carousel
+data object DatePicker
+data object Tabs
+data object TextField
+data object BottomBar
+data object Account
+data object Invoice
+data object UserApi
+data object PostNotification

@@ -1,5 +1,7 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
@@ -25,6 +27,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.invoice.Sc
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.menu.ScreenMenu
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.navigation_drawer.ScreenNavigationDrawer
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.notification.ScreenNotification
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.postnotification.ScreenPostNotification
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.radio.ScreenRadio
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.slider.ScreenSlider
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.snackbar.ScreenSnackbar
@@ -35,35 +38,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.tooltip.Sc
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.userapi.ScreenUserApi
 
 // Define keys that will identify content
-data object Home
-data object Notification
-data object CardView
-data object Button
-data object CheckBox
-data object Radio
-data object Switch
-data object Slider
-data object Chip
-data object Dialog
-data object AlertDialog
-data object BottomSheet
-data object Snackbar
-data object Tooltip
-data object Menu
-data object NavigationDrawer
-data object BottomNavigationBar
-data object BottomBarWithFloating
-data object CircleProgressIndicator
-data object Carousel
-data object DatePicker
-data object Tabs
-data object TextField
-data object BottomBar
-data object Account
-data object Invoice
-
-data object UserApi
-
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun AppNavigation() {
 
@@ -215,6 +190,14 @@ fun AppNavigation() {
 
                 is UserApi -> NavEntry(key) {
                     ScreenUserApi(
+                        onBack = {
+                            onBack()
+                        }
+                    )
+                }
+
+                is PostNotification -> NavEntry(key) {
+                    ScreenPostNotification(
                         onBack = {
                             onBack()
                         }

@@ -59,32 +59,33 @@ class UserApiVM : ViewModel() {
         }
     }
 
-    fun updateUser(id: String, body: UserUpdateRequest){
-            viewModelScope.launch {
-                try {
-                    val response = RetrofitClient.apiService.updateUser(id, body)
-                    if (response.isSuccessful) {
-                        val updatedUser = response.body()
-                        if (updatedUser != null) {
-                            _updateUserUiState.value = BaseUiState.Success(updatedUser)
-                        } else {
-                            _updateUserUiState.value = BaseUiState.Error(500000, "Failed to update user")
-                        }
+    fun updateUser(id: String, body: UserUpdateRequest) {
+        viewModelScope.launch {
+            try {
+                val response = RetrofitClient.apiService.updateUser(id, body)
+                if (response.isSuccessful) {
+                    val updatedUser = response.body()
+                    if (updatedUser != null) {
+                        _updateUserUiState.value = BaseUiState.Success(updatedUser)
+                    } else {
+                        _updateUserUiState.value =
+                            BaseUiState.Error(500000, "Failed to update user")
                     }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    _updateUserUiState.value = BaseUiState.ErrorException(500000.toString(), e)
                 }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                _updateUserUiState.value = BaseUiState.ErrorException(500000.toString(), e)
             }
+        }
     }
 
-    fun deleteUser(id: String){
+    fun deleteUser(id: String) {
         viewModelScope.launch {
             _userListUiState.value = BaseUiState.Loading
             try {
                 val response = RetrofitClient.apiService.deleteUser(id)
                 _userDeleteUiState.emit(BaseUiState.Success(response))
-            }catch (e: Exception) {
+            } catch (e: Exception) {
 
             }
         }
