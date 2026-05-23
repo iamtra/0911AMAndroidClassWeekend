@@ -181,15 +181,29 @@ class HomeRepository {
             24,
             "User Api",
             "Running api using retrofit 2",
-            "https://img.icons8.com/fluency/48/invoice.png",
+            "https://img.icons8.com/fluency/48/api-settings.png",
             UserApi
         ),
         ComponentModel(
             25,
             "POST Notification",
             "Notification",
-            "https://img.icons8.com/fluency/48/bell.png",
+            "https://img.icons8.com/fluency/48/appointment-reminders.png",
             PostNotification
+        ),
+        ComponentModel(
+            26,
+            "SELECT Single Photo",
+            "This is a sample description",
+            "https://img.icons8.com/fluency/48/picture.png",
+            SelectedSinglePhoto
+        ),
+        ComponentModel(
+            27,
+            "SELECT Multiple Photos",
+            "This is a sample description",
+            "https://img.icons8.com/fluency/48/pictures-folder.png",
+            SelectedMultiplePhotos
         )
     )
 

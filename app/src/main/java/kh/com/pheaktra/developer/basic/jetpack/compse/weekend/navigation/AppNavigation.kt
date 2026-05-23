@@ -24,6 +24,8 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.datepicker
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.dialog.ScreenDialog
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home.ScreenHome
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.invoice.ScreenInvoice
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedMultiplePhoto
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedSinglePhoto
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.menu.ScreenMenu
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.navigation_drawer.ScreenNavigationDrawer
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.notification.ScreenNotification
@@ -202,6 +204,18 @@ fun AppNavigation() {
                             onBack()
                         }
                     )
+                }
+
+                is SelectedSinglePhoto -> NavEntry(key) {
+                    ScreenSelectedSinglePhoto {
+                        onBack()
+                    }
+                }
+
+                is SelectedMultiplePhotos -> NavEntry(key) {
+                    ScreenSelectedMultiplePhoto {
+                        onBack()
+                    }
                 }
 
                 else -> NavEntry(Unit) { Text("Unknown route") }

@@ -2,6 +2,7 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home
 
 import android.widget.Toast
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -160,11 +161,19 @@ fun ScreenHome(
                             AsyncImage(
                                 model = item.icon,
                                 contentDescription = null,
-                                modifier = Modifier.padding(end = 16.dp)
                             )
-                            Text(
-                                text = item.title,
-                            )
+                            Column(
+                                modifier = Modifier.padding(start = 16.dp)
+                            ) {
+                                Text(
+                                    text = item.title,
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Text(
+                                    text = item.message,
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                            }
                         }
                         HorizontalDivider()
                     }

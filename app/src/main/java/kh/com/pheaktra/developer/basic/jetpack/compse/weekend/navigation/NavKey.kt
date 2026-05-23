@@ -28,3 +28,5 @@ data object Account
 data object Invoice
 data object UserApi
 data object PostNotification
+data object SelectedSinglePhoto
+data object SelectedMultiplePhotos
