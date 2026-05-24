@@ -57,7 +57,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     // Retrofit
     implementation(libs.retrofit)
-    implementation(libs.converter.gson)
+//    implementation(libs.converter.gson)
+//    implementation(libs.converter.kotlinx.serialization)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.jakewharton.retrofit2.kotlinx.serialization.converter)
 
     // Coroutines (for suspend functions)
     implementation(libs.kotlinx.coroutines.android)
