@@ -30,3 +30,8 @@ data object UserApi
 data object PostNotification
 data object SelectedSinglePhoto
 data object SelectedMultiplePhotos
+
+data object SelectedSingleVideo
+data object SelectedMultipleVideo
+
+data object SelectedVideosAndPhotos

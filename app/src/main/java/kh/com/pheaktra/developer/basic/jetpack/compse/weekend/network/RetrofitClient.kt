@@ -25,3 +25,7 @@ object RetrofitClient {
             .create(ApiService::class.java)
     }
 }
+
+/**
+ * Switch from Gson to Kotlin Serialization
+ */

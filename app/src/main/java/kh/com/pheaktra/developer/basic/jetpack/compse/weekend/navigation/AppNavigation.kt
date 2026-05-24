@@ -25,7 +25,10 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.dialog.Scr
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home.ScreenHome
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.invoice.ScreenInvoice
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedMultiplePhoto
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedMultipleVideo
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedSinglePhoto
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedSingleVideo
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedVideosAndPhotos
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.menu.ScreenMenu
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.navigation_drawer.ScreenNavigationDrawer
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.notification.ScreenNotification
@@ -214,6 +217,24 @@ fun AppNavigation() {
 
                 is SelectedMultiplePhotos -> NavEntry(key) {
                     ScreenSelectedMultiplePhoto {
+                        onBack()
+                    }
+                }
+
+                is SelectedSingleVideo -> NavEntry(key) {
+                    ScreenSelectedSingleVideo {
+                        onBack()
+                    }
+                }
+
+                is SelectedMultipleVideo -> NavEntry(key) {
+                    ScreenSelectedMultipleVideo {
+                        onBack()
+                    }
+                }
+
+                is SelectedVideosAndPhotos -> NavEntry(key) {
+                    ScreenSelectedVideosAndPhotos {
                         onBack()
                     }
                 }

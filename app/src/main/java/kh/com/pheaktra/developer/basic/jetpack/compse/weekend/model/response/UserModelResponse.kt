@@ -5,9 +5,9 @@ data class UserListResponse(
     val message: String,
     val data: List<UserModelResponse>
 )
+
 data class UserModelResponse(
     val id: String,
     val name: String,
     val email: String
 )
-
