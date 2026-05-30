@@ -35,3 +35,5 @@ data object SelectedSingleVideo
 data object SelectedMultipleVideo
 
 data object SelectedVideosAndPhotos
+
+data object CameraLauncher

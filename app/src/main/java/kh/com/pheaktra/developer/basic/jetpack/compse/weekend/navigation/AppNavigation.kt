@@ -15,6 +15,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_bar
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_navigation_bar.ScreenBottomNavigationBar
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_sheet.ScreenBottomSheet
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.button.ScreenButton
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.camera.ScreenCameraLauncher
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.card.ScreenCardView
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.carousel.ScreenCarousel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.checkbox.ScreenCheckBox
@@ -235,6 +236,12 @@ fun AppNavigation() {
 
                 is SelectedVideosAndPhotos -> NavEntry(key) {
                     ScreenSelectedVideosAndPhotos {
+                        onBack()
+                    }
+                }
+
+                is CameraLauncher -> NavEntry(key) {
+                    ScreenCameraLauncher {
                         onBack()
                     }
                 }

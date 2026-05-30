@@ -225,6 +225,13 @@ private val componentList = mutableListOf(
         "https://img.icons8.com/fluency/48/media-queries.png",
         SelectedVideosAndPhotos
     ),
+    ComponentModel(
+        32,
+        "Camera Launcher",
+        "Pick and preview both images and videos from device storage.",
+        "https://img.icons8.com/fluency/48/media-queries.png",
+        CameraLauncher
+    ),
 )
 
 class HomeRepository {
