@@ -15,7 +15,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -46,8 +45,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.CardModel
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.CardModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.BaseUiState
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.LoadingUtil
 
 @Composable

@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add

@@ -1,7 +1,7 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.notification
 
 import androidx.lifecycle.ViewModel
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.NotificationResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.NotificationResponse
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class NotificationVM(

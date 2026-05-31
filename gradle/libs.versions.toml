@@ -14,9 +14,9 @@ lifecycleRuntimeKtx = "2.9.4 "
 activityCompose = "1.11.0"
 composeBom = "2024.09.00"
 
-hilt = "2.56.2"
+hilt = "2.59.2"
 hiltNavigationCompose = "1.2.0"
-ksp = "2.3.4"
+ksp = "2.3.2"
 
 retrofit2KotlinxSerializationConverter = "1.0.0"
 

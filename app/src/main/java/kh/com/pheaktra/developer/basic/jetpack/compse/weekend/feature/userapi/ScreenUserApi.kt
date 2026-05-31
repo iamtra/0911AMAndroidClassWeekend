@@ -62,10 +62,10 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.request.CreateUserRequest
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.request.UserUpdateRequest
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.response.UserModelResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.BaseUiState
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.CreateUserRequest
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.UserUpdateRequest
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserModelResponse
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.LoadingUtil
 

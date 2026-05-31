@@ -2,14 +2,13 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.userapi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.request.CreateUserRequest
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.request.UserUpdateRequest
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.response.UserCreateResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.response.UserDeleteResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.response.UserListResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.response.UserModelResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.response.UserUpdateResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.BaseUiState
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.CreateUserRequest
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.UserUpdateRequest
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserCreateResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserDeleteResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserListResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserUpdateResponse
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.network.RetrofitClient
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

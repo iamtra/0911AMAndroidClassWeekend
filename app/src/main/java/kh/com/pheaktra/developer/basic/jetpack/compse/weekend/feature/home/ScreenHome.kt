@@ -35,7 +35,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.BaseUiState
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.LoadingUtil
 import kotlinx.coroutines.launch

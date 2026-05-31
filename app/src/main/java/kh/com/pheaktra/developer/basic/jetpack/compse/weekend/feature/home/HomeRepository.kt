@@ -1,6 +1,6 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home
 
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.ComponentModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.ComponentModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

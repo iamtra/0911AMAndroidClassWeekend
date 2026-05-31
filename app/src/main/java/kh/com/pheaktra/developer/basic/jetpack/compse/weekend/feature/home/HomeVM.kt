@@ -2,9 +2,8 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.ComponentModel
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
-import kotlinx.coroutines.delay
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.ComponentModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.BaseUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

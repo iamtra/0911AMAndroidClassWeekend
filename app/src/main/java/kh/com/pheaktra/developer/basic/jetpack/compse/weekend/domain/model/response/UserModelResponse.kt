@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.response
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
