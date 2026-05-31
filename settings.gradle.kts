@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "911AMAdvanceJetpackCompose"
 include(":app")
-include(":core")
+//include(":core")
