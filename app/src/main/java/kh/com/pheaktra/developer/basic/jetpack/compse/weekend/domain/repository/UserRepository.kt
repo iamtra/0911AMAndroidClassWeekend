@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.network
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.repository
 
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.CreateUserRequest
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.UserUpdateRequest
@@ -7,18 +7,14 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.respo
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserListResponse
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserUpdateResponse
 import retrofit2.Response
-import retrofit2.http.*
 
-interface ApiService {
-    @GET("users")
-    suspend fun getUsers(): Response<UserListResponse>
+interface UserRepository {
 
-    @POST("users")
-    suspend fun createUser(@Body user: CreateUserRequest): Response<UserCreateResponse>
+    suspend fun getUsers() : Response<UserListResponse>
 
-    @DELETE("users/{id}")
-    suspend fun deleteUser(@Path("id") id: String): Response<UserDeleteResponse>
+    suspend fun createUser(body: CreateUserRequest) : Response<UserCreateResponse>
 
-    @PUT("users/{id}")
-    suspend fun updateUser(@Path("id") id: String, @Body user: UserUpdateRequest): Response<UserUpdateResponse>
+    suspend fun updateUser(id: String, body: UserUpdateRequest) : Response<UserUpdateResponse>
+
+    suspend fun deleteUser(id: String) : Response<UserDeleteResponse>
 }
