@@ -1,5 +1,6 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension
 
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.common.ValueYN
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -22,4 +23,16 @@ fun String.formatTimestamp(): String {
     } catch (e: Exception) {
         this
     }
+}
+
+fun String.isYes() : Boolean {
+    return this.uppercase() == ValueYN.YES.value
+}
+
+fun String.isNo() : Boolean {
+    return this.uppercase() == ValueYN.NO.value
+}
+
+fun String.toValueYN() : ValueYN {
+    return if (this.isYes()) ValueYN.YES else ValueYN.NO
 }

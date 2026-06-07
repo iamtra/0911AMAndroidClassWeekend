@@ -5,7 +5,9 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import jakarta.inject.Singleton
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.di.imp.TaskRepositoryImpl
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.di.imp.UserRepositoryImpl
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.repository.TaskRepository
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.repository.UserRepository
 
 @Module
@@ -17,4 +19,10 @@ abstract class RepositoryModule {
     abstract fun bindUserRepository(
         impl: UserRepositoryImpl
     ): UserRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindTaskRepository(
+        impl: TaskRepositoryImpl
+    ): TaskRepository
 }
