@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base
 
 data class ComponentModel(
     val id: Int,

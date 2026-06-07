@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base
 
 /**
  * A generic class that holds a value with its loading status.

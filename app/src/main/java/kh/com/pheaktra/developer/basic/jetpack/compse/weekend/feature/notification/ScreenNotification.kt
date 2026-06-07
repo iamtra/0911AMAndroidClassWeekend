@@ -39,9 +39,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.NotificationResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.color
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.icon
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.NotificationResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.color
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.icon
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension.formatTimestamp
 

@@ -1,11 +1,11 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.network
 
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.CreateUserRequest
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.UserUpdateRequest
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserCreateResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserDeleteResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserListResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserUpdateResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.request.CreateUserRequest
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.request.UserUpdateRequest
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.response.UserCreateResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.response.UserDeleteResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.response.UserListResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.response.UserUpdateResponse
 import retrofit2.Response
 import retrofit2.http.*
 

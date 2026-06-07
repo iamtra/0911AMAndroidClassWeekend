@@ -36,7 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.DashboardModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.DashboardModel
 
 @Composable
 fun ScreenAccount(

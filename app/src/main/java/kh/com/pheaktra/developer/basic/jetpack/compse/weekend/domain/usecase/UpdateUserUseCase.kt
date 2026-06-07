@@ -1,12 +1,9 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.usecase
 
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.BaseUseCase
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.BaseUiState
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.CreateUserRequest
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.request.UserUpdateRequest
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserCreateResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserListResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.response.UserUpdateResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.BaseUiState
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.request.UserUpdateRequest
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.response.UserUpdateResponse
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

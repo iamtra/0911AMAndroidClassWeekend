@@ -1,6 +1,6 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.local
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.di.local
 
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.TransactionModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.TransactionModel
 
 val transactionList: List<TransactionModel> = listOf(
     TransactionModel(

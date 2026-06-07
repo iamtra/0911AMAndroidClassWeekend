@@ -30,7 +30,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.NavigationItemModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.NavigationItemModel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,6 +1,6 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.card
 
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.base.CardModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.CardModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
