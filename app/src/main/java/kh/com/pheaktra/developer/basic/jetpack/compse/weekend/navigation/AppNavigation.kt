@@ -35,6 +35,8 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.navigation
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.notification.ScreenNotification
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.postnotification.ScreenPostNotification
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.radio.ScreenRadio
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatabase.ScreenCreateTask
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatabase.ScreenRoomDatabase
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.slider.ScreenSlider
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.snackbar.ScreenSnackbar
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.switch.ScreenSwitch
@@ -242,6 +244,26 @@ fun AppNavigation() {
 
                 is CameraLauncher -> NavEntry(key) {
                     ScreenCameraLauncher {
+                        onBack()
+                    }
+                }
+
+                is RoomDatabase -> NavEntry(key) {
+                    ScreenRoomDatabase(
+                        onBack = {
+                            onBack()
+                        },
+                        onCreateTask = {
+                            backStack.add(CreateTask())
+                        },
+                        onEditTask = { task ->
+                            backStack.add(CreateTask(task))
+                        }
+                    )
+                }
+
+                is CreateTask -> NavEntry(key) {
+                    ScreenCreateTask(taskData = key.task) {
                         onBack()
                     }
                 }

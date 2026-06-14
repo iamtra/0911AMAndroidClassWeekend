@@ -7,7 +7,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.response.User
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.response.UserListResponse
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.response.UserUpdateResponse
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.repository.UserRepository
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.network.ApiService
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.di.remote.ApiService
 import retrofit2.Response
 import javax.inject.Inject
 

@@ -2,31 +2,33 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home
 
 import android.widget.Toast
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LargeTopAppBar
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
@@ -51,6 +53,7 @@ fun ScreenHome(
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     val componentListState by homeVM.componentList.collectAsStateWithLifecycle()
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
     LaunchedEffect(componentListState) {
         when (val state = componentListState) {
@@ -74,36 +77,12 @@ fun ScreenHome(
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
-                Lifecycle.Event.ON_CREATE -> {
-//                    println("====> ON_CREATE")
-                }
-
-                Lifecycle.Event.ON_START -> {
-//                    println("====> ON_START")
-                }
-
                 Lifecycle.Event.ON_RESUME -> {
-//                    println("====> ON_RESUME")
                     scope.launch {
                         Toast.makeText(context, "Compose is on resume", Toast.LENGTH_SHORT).show()
                     }
                 }
-
-                Lifecycle.Event.ON_PAUSE -> {
-//                    println("====> ON_PAUSE")
-                }
-
-                Lifecycle.Event.ON_STOP -> {
-//                    println("====> ON_STOP")
-                }
-
-                Lifecycle.Event.ON_DESTROY -> {
-//                    println("====> ON_DESTROY")
-                }
-
-                Lifecycle.Event.ON_ANY -> {
-//                    println("====> ON_ANY")
-                }
+                else -> {}
             }
         }
 
@@ -117,11 +96,15 @@ fun ScreenHome(
 
     Scaffold(
         modifier = Modifier
-            .navigationBarsPadding(),
+            .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            TopAppBar(
+            LargeTopAppBar(
                 title = {
-                    Text("My App")
+                    Text(
+                        "Settings",
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.Normal
+                    )
                 },
                 actions = {
                     IconButton(
@@ -129,53 +112,64 @@ fun ScreenHome(
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_notifications_none),
-                            contentDescription = null
+                            contentDescription = "Notifications"
                         )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                scrollBehavior = scrollBehavior,
+                colors = TopAppBarDefaults.largeTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer
                 )
             )
         },
+        containerColor = MaterialTheme.colorScheme.surface
     ) { paddingValues ->
         when (val state = componentListState) {
             is BaseUiState.Success -> {
                 LazyColumn(
-                    modifier = Modifier
-                        .padding(paddingValues)
-                        .fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    contentPadding = paddingValues
                 ) {
-                    items(state.data.size) { index ->
-                        val item = state.data[index]
-                        Row(
-                            modifier = Modifier
-                                .height(56.dp)
-                                .fillMaxWidth()
-                                .clickable {
-                                    onClickItem(item.key)
-                                }
-                                .padding(horizontal = 16.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            AsyncImage(
-                                model = item.icon,
-                                contentDescription = null,
-                            )
-                            Column(
-                                modifier = Modifier.padding(start = 16.dp)
-                            ) {
+                    itemsIndexed(state.data) { index, item ->
+                        ListItem(
+                            headlineContent = {
                                 Text(
                                     text = item.title,
-                                    style = MaterialTheme.typography.titleMedium
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.Medium
                                 )
+                            },
+                            supportingContent = {
                                 Text(
                                     text = item.message,
-                                    style = MaterialTheme.typography.bodyMedium
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
-                            }
+                            },
+                            leadingContent = {
+                                AsyncImage(
+                                    model = item.icon,
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .padding(start = 8.dp)
+                                        .size(24.dp)
+                                )
+                            },
+                            modifier = Modifier.clickable {
+                                onClickItem(item.key)
+                            },
+                            colors = ListItemDefaults.colors(
+                                containerColor = Color.Transparent
+                            )
+                        )
+                        if (index < state.data.size - 1) {
+                            HorizontalDivider(
+                                modifier = Modifier.padding(start = 64.dp, end = 24.dp),
+                                thickness = 0.5.dp,
+                                color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)
+                            )
                         }
-                        HorizontalDivider()
                     }
                 }
             }

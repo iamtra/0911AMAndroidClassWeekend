@@ -4,7 +4,9 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.common.ValueYN
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.di.local.entity.Task
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension.isNo
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension.isYes
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class TaskModel(
     val taskId: Long,
     val taskName: String,

@@ -6,13 +6,19 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.di.local.entity.to
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.TaskModel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.toTask
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.repository.TaskRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class TaskRepositoryImpl @Inject constructor(
     private val taskDao: TaskDao
 ) : TaskRepository {
-    override suspend fun getTasks(): List<TaskModel> {
-        return taskDao.getTaskLists().toTaskModelList()
+    override fun getTasks(): Flow<List<TaskModel>> {
+        return flow {
+            taskDao.getTaskLists().collect { tasks ->
+                emit(tasks.toTaskModelList())
+            }
+        }
     }
 
     override suspend fun createTask(task: TaskModel): TaskModel {
@@ -25,13 +31,13 @@ class TaskRepositoryImpl @Inject constructor(
         return task
     }
 
-    override suspend fun deleteTask(taskId: String): TaskModel {
+    override suspend fun deleteTask(taskId: Long): TaskModel {
         val task = taskDao.getTaskById(taskId) ?: throw Exception("Task not found")
         taskDao.deleteTask(taskId)
         return task.toTaskModel()
     }
 
-    override suspend fun getTaskById(taskId: String): TaskModel? {
+    override suspend fun getTaskById(taskId: Long): TaskModel? {
         return taskDao.getTaskById(taskId)?.toTaskModel()
     }
 

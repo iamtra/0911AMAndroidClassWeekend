@@ -7,12 +7,13 @@ import androidx.room.Query
 import androidx.room.Update
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.common.TableName
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.di.local.entity.Task
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TaskDao {
 
     @Query("SELECT * FROM ${TableName.TASK}")
-    suspend fun getTaskLists(): List<Task>
+    fun getTaskLists(): Flow<List<Task>>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun createTask(task: Task): Long
@@ -21,10 +22,10 @@ interface TaskDao {
     suspend fun updateTask(task: Task): Int
 
     @Query("DELETE FROM ${TableName.TASK} WHERE id = :taskId")
-    suspend fun deleteTask(taskId: String): Int
+    suspend fun deleteTask(taskId: Long): Int
 
     @Query("SELECT * FROM ${TableName.TASK} WHERE id = :taskId LIMIT 1")
-    suspend fun getTaskById(taskId: String): Task?
+    suspend fun getTaskById(taskId: Long): Task?
 
     @Query("""
         SELECT * FROM ${TableName.TASK}

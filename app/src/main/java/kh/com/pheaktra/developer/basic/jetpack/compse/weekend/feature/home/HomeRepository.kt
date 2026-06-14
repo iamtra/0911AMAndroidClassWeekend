@@ -232,6 +232,13 @@ private val componentList = mutableListOf(
         "https://img.icons8.com/fluency/48/media-queries.png",
         CameraLauncher
     ),
+    ComponentModel(
+        id = 33,
+        title = "Room Database",
+        message = "Local SQLite database powered by Room for storing, querying, updating, and managing app data with reactive Flow support.",
+        icon = "https://img.icons8.com/color/96/database.png",
+        key = RoomDatabase
+    )
 )
 
 class HomeRepository {

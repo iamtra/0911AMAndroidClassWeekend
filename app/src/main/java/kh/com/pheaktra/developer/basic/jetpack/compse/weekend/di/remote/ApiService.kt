@@ -1,4 +1,4 @@
-package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.network
+package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.di.remote
 
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.request.CreateUserRequest
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.request.UserUpdateRequest

@@ -1,5 +1,8 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation
 
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.TaskModel
+import kotlinx.serialization.Serializable
+
 data object Home
 data object Notification
 data object CardView
@@ -37,3 +40,8 @@ data object SelectedMultipleVideo
 data object SelectedVideosAndPhotos
 
 data object CameraLauncher
+
+data object RoomDatabase
+
+@Serializable
+data class CreateTask(val task: TaskModel? = null)
