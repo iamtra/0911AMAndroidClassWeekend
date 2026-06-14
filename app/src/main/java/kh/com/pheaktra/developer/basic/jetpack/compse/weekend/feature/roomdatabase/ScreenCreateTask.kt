@@ -1,14 +1,14 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatabase
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenuItem
@@ -17,10 +17,8 @@ import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -31,21 +29,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.common.ValueYN
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.BaseUiState
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.TaskModel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension.isYes
@@ -57,6 +54,9 @@ fun ScreenCreateTask(
     roomVM: RoomVM = viewModel(),
     onBack: () -> Unit,
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val density = LocalDensity.current
+    val focusRequester = remember { FocusRequester() }
 
     var taskName by remember {
         mutableStateOf("")
@@ -68,6 +68,8 @@ fun ScreenCreateTask(
     var taskCompletedYN by remember {
         mutableStateOf(ValueYN.NO)
     }
+
+    val isKeyboardVisible = WindowInsets.ime.getBottom(density) > 0
 
     fun onSave() {
         val task = TaskModel(
@@ -84,6 +86,11 @@ fun ScreenCreateTask(
         onBack()
     }
 
+    LaunchedEffect(Unit) {
+        focusRequester.requestFocus()
+//        keyboardController?.show()
+    }
+
     LaunchedEffect(key1 = taskData) {
         if (taskData != null) {
             taskName = taskData.taskName
@@ -93,7 +100,17 @@ fun ScreenCreateTask(
     }
 
     Scaffold(
-        modifier = Modifier.navigationBarsPadding(),
+        modifier = Modifier
+            .navigationBarsPadding()
+            .clickable(
+                enabled = true,
+                onClick = {
+                    keyboardController?.hide()
+                },
+                indication = null,
+                interactionSource = null
+            )
+            .imePadding(),
         topBar = {
             TopAppBar(
                 navigationIcon = {
@@ -127,13 +144,24 @@ fun ScreenCreateTask(
                     onSave()
                 },
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .fillMaxWidth(),
+                    .padding(
+                        horizontal = if (!isKeyboardVisible) 16.dp else 0.dp
+                    )
+                    .clip(
+                        RoundedCornerShape(
+                            if (!isKeyboardVisible) 16.dp else 0.dp
+                        )
+                    )
+                    .fillMaxWidth()
+                    .imePadding(),
                 enabled = taskName.isNotBlank()
             ) {
                 Text(
-                    if (taskData == null) "Create Task"
-                    else "Update Task"
+                    text = if (taskData == null) {
+                        "Create Task"
+                    } else {
+                        "Update Task"
+                    }
                 )
             }
         }
@@ -146,7 +174,8 @@ fun ScreenCreateTask(
             OutlinedTextField(
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .focusRequester(focusRequester),
                 value = taskName,
                 onValueChange = { taskName = it },
                 label = { Text("Task Name") },
