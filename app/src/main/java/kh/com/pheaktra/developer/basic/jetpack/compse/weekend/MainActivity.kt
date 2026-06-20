@@ -76,3 +76,9 @@ class MainActivity : ComponentActivity() {
  *      - taskCompletedYN
  */
 
+/**
+ * 1. APK
+ * 2. AAB (app bundle)
+ * 3. AAR (android archive)
+ */
+

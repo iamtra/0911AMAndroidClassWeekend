@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.hilt)
@@ -58,6 +57,8 @@ dependencies {
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.coil.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.compose.foundation.layout)
+
     // Retrofit
     implementation(libs.retrofit)
 //    implementation(libs.converter.gson)
@@ -76,7 +77,6 @@ dependencies {
 
     // di
     implementation(libs.hilt.android)
-    implementation(libs.androidx.compose.foundation.layout)
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
 
@@ -85,7 +85,12 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     // Implement local module
-//    implementation(project(":core"))
+    implementation(project(":core"))
+    implementation(project(":core:model"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:data"))
+    implementation(project(":core:network"))
+    implementation(project(":core:util"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

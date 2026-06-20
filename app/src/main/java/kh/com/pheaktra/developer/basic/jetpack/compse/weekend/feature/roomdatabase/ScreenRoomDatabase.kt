@@ -2,7 +2,6 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatab
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,12 +16,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
@@ -46,14 +43,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.common.ValueYN
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.BaseUiState
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.TaskModel
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.isCompleted
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
+import kh.com.pheaktra.developer.android.domain.model.TaskModel
+import kh.com.pheaktra.developer.android.domain.model.isCompleted
+import kh.com.pheaktra.developer.android.util.common.ValueYN
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatabase.bottmsheet.TaskActionBottomSheet
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 

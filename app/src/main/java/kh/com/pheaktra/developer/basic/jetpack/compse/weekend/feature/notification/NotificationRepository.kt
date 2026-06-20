@@ -1,7 +1,7 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.notification
 
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.NotificationResponse
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.NotificationType
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.NotificationResponse
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.NotificationType
 
 class NotificationRepository {
     private val notificationList = listOf(

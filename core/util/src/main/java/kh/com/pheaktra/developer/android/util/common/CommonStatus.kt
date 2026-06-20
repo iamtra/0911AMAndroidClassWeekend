@@ -1,0 +1,6 @@
+package kh.com.pheaktra.developer.android.util.common
+
+enum class ValueYN(val value: String) {
+    YES("Y"),
+    NO("N")
+}

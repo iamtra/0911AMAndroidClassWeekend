@@ -6,10 +6,19 @@
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="ScaffoldLayoutPreview">
+      <SelectionState runConfigName="core.domain">
         <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="core">
+      <SelectionState runConfigName="core.di">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="core.util">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="core.network">
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>

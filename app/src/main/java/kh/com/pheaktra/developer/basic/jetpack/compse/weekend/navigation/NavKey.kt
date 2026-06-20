@@ -1,6 +1,6 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation
 
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.TaskModel
+import kh.com.pheaktra.developer.android.domain.model.TaskModel
 import kotlinx.serialization.Serializable
 
 data object Home

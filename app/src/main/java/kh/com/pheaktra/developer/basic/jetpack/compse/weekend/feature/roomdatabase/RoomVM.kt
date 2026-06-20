@@ -2,15 +2,14 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatab
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.common.eventbus.Subscribe
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jakarta.inject.Inject
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.BaseUiState
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.TaskModel
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.usecase.local.CreateTaskUseCase
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.usecase.local.DeleteTaskUseCase
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.usecase.local.GetTaskListUseCase
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.usecase.local.UpdateTaskUseCase
+import javax.inject.Inject
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
+import kh.com.pheaktra.developer.android.domain.model.TaskModel
+import kh.com.pheaktra.developer.android.domain.usecase.local.CreateTaskUseCase
+import kh.com.pheaktra.developer.android.domain.usecase.local.DeleteTaskUseCase
+import kh.com.pheaktra.developer.android.domain.usecase.local.GetTaskListUseCase
+import kh.com.pheaktra.developer.android.domain.usecase.local.UpdateTaskUseCase
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn

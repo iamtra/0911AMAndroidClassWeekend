@@ -45,8 +45,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.CardModel
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.BaseUiState
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.CardModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.LoadingUtil
 
 @Composable

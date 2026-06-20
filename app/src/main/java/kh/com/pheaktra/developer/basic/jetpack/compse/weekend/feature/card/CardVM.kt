@@ -2,8 +2,8 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.card
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.CardModel
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.data.base.BaseUiState
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.CardModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

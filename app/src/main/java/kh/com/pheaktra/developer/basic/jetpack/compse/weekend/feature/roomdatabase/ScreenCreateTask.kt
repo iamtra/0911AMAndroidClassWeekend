@@ -42,10 +42,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.common.ValueYN
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.domain.model.TaskModel
+import kh.com.pheaktra.developer.android.domain.model.TaskModel
+import kh.com.pheaktra.developer.android.util.common.ValueYN
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension.isYes
+import kh.com.pheaktra.developer.android.util.common.extension.isYes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
