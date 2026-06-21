@@ -7,4 +7,5 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.android.built.in1.kotlin) apply false
+    alias(libs.plugins.com.google.gms.google.services) apply false
 }

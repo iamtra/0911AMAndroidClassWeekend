@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "780230857483",
+    "project_id": "masterapp-58351",
+    "storage_bucket": "masterapp-58351.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780230857483:android:670ff94a06e930165b880e",
+        "android_client_info": {
+          "package_name": "kh.com.pheaktra.developer.basic.jetpack.compse.weekend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxAr-39XKNwmyP7tpauBaInpUsZ_hTeDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

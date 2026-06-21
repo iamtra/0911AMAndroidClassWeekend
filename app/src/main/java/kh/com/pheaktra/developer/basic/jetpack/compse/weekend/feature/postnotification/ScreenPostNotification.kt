@@ -42,6 +42,7 @@ import androidx.core.app.NotificationManagerCompat
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation.Button
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.NotificationUtil
 
 private const val CHANNEL_ID = "default_channel"
 
@@ -63,7 +64,7 @@ fun ScreenPostNotification(
         if (!isGranted) {
             Toast.makeText(context, "Permission Denied", Toast.LENGTH_SHORT).show()
         } else {
-            createNotificationChannel(context)
+            NotificationUtil.createNotificationChannel(context)
         }
     }
 
@@ -97,7 +98,7 @@ fun ScreenPostNotification(
                     }
                 },
                 title = {
-                    Text("POST Notification")
+                    Text("POST NotificationUtil")
                 },
             )
         },
@@ -116,12 +117,12 @@ fun ScreenPostNotification(
                         Toast.makeText(context, "Permission Denied", Toast.LENGTH_SHORT).show()
                         return@FilledTonalButton
                     }
-                    sendNotification(context, title, message)
+                    NotificationUtil.sendNotification(context, title, message)
                     title = ""
                     message = ""
                 }
             ) {
-                Text("Send Notification")
+                Text("Send NotificationUtil")
             }
         }
     ) { paddingValues ->
@@ -138,7 +139,7 @@ fun ScreenPostNotification(
                     .padding(top = 16.dp)
                     .fillMaxWidth(),
                 label = {
-                    Text(text = "Notification title")
+                    Text(text = "NotificationUtil title")
                 },
                 placeholder = {
                     Text(text = "Enter notification title")
@@ -165,29 +166,6 @@ fun ScreenPostNotification(
             )
         }
     }
-}
-
-private fun createNotificationChannel(context: Context) {
-    val name = context.getString(R.string.channel_name)
-    val descriptionText = context.getString(R.string.channel_description)
-    val importance = NotificationManager.IMPORTANCE_DEFAULT
-    val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-        description = descriptionText
-    }
-    // Register the channel with the system.
-    val notificationManager: NotificationManager =
-        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-    notificationManager.createNotificationChannel(channel)
-}
-
-@RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
-fun sendNotification(context: Context, title: String, message: String) {
-    val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-        .setSmallIcon(R.drawable.ic_launcher_foreground)
-        .setContentTitle(title)
-        .setContentText(message)
-        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-    NotificationManagerCompat.from(context).notify(101001, builder.build())
 }
 
 

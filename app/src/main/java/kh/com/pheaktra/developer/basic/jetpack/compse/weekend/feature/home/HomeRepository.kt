@@ -185,7 +185,7 @@ private val componentList = mutableListOf(
     ),
     ComponentModel(
         26,
-        "Push Notification",
+        "Push NotificationUtil",
         "Create and display local push notifications.",
         "https://img.icons8.com/fluency/48/appointment-reminders.png",
         PostNotification

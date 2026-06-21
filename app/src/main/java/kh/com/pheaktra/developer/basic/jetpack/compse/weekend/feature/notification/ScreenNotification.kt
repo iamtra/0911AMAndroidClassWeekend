@@ -70,7 +70,7 @@ fun ScreenNotification(
                         )
                     }
                 },
-                title = { Text("Notification") },
+                title = { Text("NotificationUtil") },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 )

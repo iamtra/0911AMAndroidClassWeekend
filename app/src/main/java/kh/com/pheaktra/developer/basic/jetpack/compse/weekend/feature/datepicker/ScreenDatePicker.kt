@@ -90,7 +90,7 @@ fun ScreenDatePicker() {
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_notification),
-                            contentDescription = "Notification Icon",
+                            contentDescription = "NotificationUtil Icon",
                         )
                     }
                     IconButton(
