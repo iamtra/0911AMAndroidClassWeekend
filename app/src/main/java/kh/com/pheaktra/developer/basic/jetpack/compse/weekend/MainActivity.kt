@@ -12,6 +12,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.core.app.ActivityCompat
 import dagger.hilt.android.AndroidEntryPoint
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation.AppNavigation
@@ -26,9 +29,20 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.Notification
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private var route by mutableStateOf<String?>(null)
+    private var userId by mutableStateOf<String?>(null)
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        route = intent?.getStringExtra("route")
+        userId = intent?.getStringExtra("userId")
+
+        println("=====> $route")
+        println("=====> $userId")
+
         enableEdgeToEdge()
         setContent {
             val notificationPermissionLauncher = rememberLauncherForActivityResult(
@@ -57,7 +71,7 @@ class MainActivity : ComponentActivity() {
                 if (LoadingUtil.isLoading.value) {
                     LoadingContent()
                 }
-                AppNavigation()
+                AppNavigation(route)
             }
         }
     }
@@ -111,4 +125,3 @@ class MainActivity : ComponentActivity() {
  * 2. AAB (app bundle)
  * 3. AAR (android archive)
  */
-
