@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
@@ -40,11 +41,14 @@ dependencies {
 
     // Retrofit
     implementation(libs.retrofit)
+    implementation(libs.logging.interceptor)
 
     // DI
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.jakewharton.retrofit2.kotlinx.serialization.converter)
 
     // Room DB
     implementation(libs.androidx.room.runtime)
@@ -55,6 +59,7 @@ dependencies {
     implementation(project(":core:model"))
     implementation(project(":core:util"))
     implementation(project(":core:network"))
+    implementation(project(":core:common"))
 
 
     testImplementation(libs.junit)

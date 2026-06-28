@@ -29,6 +29,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
@@ -36,6 +37,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.BuildConfig
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
@@ -131,6 +133,13 @@ fun ScreenHome(
                     modifier = Modifier.fillMaxWidth(),
                     contentPadding = paddingValues
                 ) {
+                    item {
+                        Text(
+                            modifier = Modifier.fillMaxWidth(),
+                            text = "Base URL: ${BuildConfig.BASE_URL}",
+                            textAlign = TextAlign.Center
+                        )
+                    }
                     itemsIndexed(state.data) { index, item ->
                         ListItem(
                             headlineContent = {

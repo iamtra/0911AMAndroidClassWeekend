@@ -9,7 +9,7 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend
  *  - Multiple product flavor (Cross environment)
  *  - Restructure navigation to standard navigation
  *
- * 3. Interact with Mobile Hardware
+ * 3. Interact with Mobile Hardware (July 04, 2026)
  *  - Camerax + runtime permission
  *  - Select media from Gallery/Photos and File Explorer (Done)
  *  - Get Wi-Fi state

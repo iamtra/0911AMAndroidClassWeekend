@@ -16,26 +16,121 @@ android {
         minSdk = 29
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    flavorDimensions += "environment"
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+
+    productFlavors {
+        create("dev") {
+            dimension = "environment"
+
+            applicationIdSuffix = ".dev"
+            versionCode = 100
+            versionName = "1.0.0"
+
+            resValue("string", "app_name", "[Dev] Master Android")
+
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"http://10.0.2.2\""
+            )
+
+            buildConfigField(
+                "String",
+                "BASE_PORT",
+                "\"3500/\""
+            )
+
+            buildConfigField(
+                "String",
+                "ENVIRONMENT",
+                "\"DEV\""
+            )
+        }
+
+        create("uat") {
+            dimension = "environment"
+
+            applicationIdSuffix = ".uat"
+            versionCode = 100
+            versionName = "1.0.0"
+
+            resValue("string", "app_name", "[UAT] Master Android ")
+
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"https://uat-api.pheaktra-developer.com/\""
+            )
+
+            buildConfigField(
+                "String",
+                "BASE_PORT",
+                "\"8080\""
+            )
+
+            buildConfigField(
+                "String",
+                "ENVIRONMENT",
+                "\"UAT\""
+            )
+        }
+
+        create("prod") {
+            dimension = "environment"
+
+            versionCode = 100
+            versionName = "1.0.0"
+
+            resValue("string", "app_name", "Master Android")
+
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"https://api.pheaktra-developer.com/\""
+            )
+
+            buildConfigField(
+                "String",
+                "BASE_PORT",
+                "\"443\""
+            )
+
+            buildConfigField(
+                "String",
+                "ENVIRONMENT",
+                "\"PROD\""
+            )
+        }
+    }
+
+    buildFeatures {
+        compose = true
+        buildConfig = true
+        resValues = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
-    }
-    buildFeatures {
-        compose = true
     }
 }
 
@@ -98,6 +193,7 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":core:network"))
     implementation(project(":core:util"))
+    implementation(project(":core:common"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
