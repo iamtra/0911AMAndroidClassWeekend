@@ -10,10 +10,12 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend
  *
  * 3. Interact with Mobile Hardware (July 04, 2026)
  *  - Select media from Gallery/Photos and File Explorer (Done)
- *  - Restructure navigation to standard navigation
+ *  - Restructure navigation to standard navigation (Done)
+ *
+ *  4. July 05, 2026
+ *  - GPS location
  *  - Camerax + runtime permission
  *  - Get Wi-Fi state
- *  - GPS location
  *  - fingerprint Sensor
  *  - Screen Density
  *  - Battery
