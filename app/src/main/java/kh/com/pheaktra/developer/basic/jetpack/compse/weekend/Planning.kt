@@ -6,12 +6,12 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend
  *  - Service to handle notification (FirebaseMessagingService)
  *
  * 2. June 28, 2026
- *  - Multiple product flavor (Cross environment)
- *  - Restructure navigation to standard navigation
+ *  - Multiple product flavor (Cross environment) (Done)
  *
  * 3. Interact with Mobile Hardware (July 04, 2026)
- *  - Camerax + runtime permission
  *  - Select media from Gallery/Photos and File Explorer (Done)
+ *  - Restructure navigation to standard navigation
+ *  - Camerax + runtime permission
  *  - Get Wi-Fi state
  *  - GPS location
  *  - fingerprint Sensor

@@ -2,12 +2,17 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.navigation3.runtime.NavEntry
+import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.account.ScreenAccount
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.alertdialog.ScreenAlertDialog
@@ -46,6 +51,8 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.textfield.
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.tooltip.ScreenToolsTips
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.userapi.ScreenUserApi
 
+private const val ANIMATION_DURATION = 300
+
 // Define keys that will identify content
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
@@ -58,13 +65,15 @@ fun AppNavigation(route: String? = null) {
     }
 
     LaunchedEffect(route) {
-        when(route) {
+        when (route) {
             "room-db" -> {
                 backStack.add(RoomDatabase)
             }
+
             "notification-detail" -> {
                 backStack.add(Notification)
             }
+
             "user-api" -> {
                 backStack.add(UserApi)
             }
@@ -74,216 +83,249 @@ fun AppNavigation(route: String? = null) {
     NavDisplay(
         backStack = backStack,
         onBack = { onBack() },
-        entryProvider = { key ->
-            when (key) {
-                is Home -> NavEntry(key) {
-                    ScreenHome(
-                        onClickNotification = {
-                            backStack.add(Notification)
-                        },
-                        onClickItem = { itemKey ->
-                            backStack.add(itemKey)
-                        }
-                    )
-                }
+        transitionSpec = {
+            slideInHorizontally(
+                initialOffsetX = { fullWidth -> fullWidth },
+                animationSpec = tween(ANIMATION_DURATION)
+            ) togetherWith slideOutHorizontally(
+                targetOffsetX = { fullWidth -> -fullWidth / 3 },
+                animationSpec = tween(ANIMATION_DURATION)
+            )
+        },
 
-                is Notification -> NavEntry(key) {
-                    ScreenNotification(
-                        onBack = {
-                            onBack()
-                        }
-                    )
-                }
+        popTransitionSpec = {
+            slideInHorizontally(
+                initialOffsetX = { fullWidth -> -fullWidth / 3 },
+                animationSpec = tween(ANIMATION_DURATION)
+            ) togetherWith slideOutHorizontally(
+                targetOffsetX = { fullWidth -> fullWidth },
+                animationSpec = tween(ANIMATION_DURATION)
+            )
+        },
+        entryProvider = entryProvider {
+            entry<Home> { key ->
+                ScreenHome(
+                    onClickNotification = {
+                        backStack.add(Notification)
+                    },
+                    onClickItem = { itemKey ->
+                        backStack.add(itemKey)
+                    }
+                )
+            }
 
-                is CardView -> NavEntry(key) {
-                    ScreenCardView(
-                        onBack = {
-                            onBack()
-                        }
-                    )
-                }
-
-                is Button -> NavEntry(key) {
-                    ScreenButton(
-                        onBack = {
-                            onBack()
-                        }
-                    )
-                }
-
-                is CheckBox -> NavEntry(key) {
-                    ScreenCheckBox()
-                }
-
-                is Radio -> NavEntry(key) {
-                    ScreenRadio()
-                }
-
-                is Switch -> NavEntry(key) {
-                    ScreenSwitch()
-                }
-
-                is Slider -> NavEntry(key) {
-                    ScreenSlider()
-                }
-
-                is Chip -> NavEntry(key) {
-                    ScreenChip()
-                }
-
-                is Dialog -> NavEntry(key) {
-                    ScreenDialog()
-                }
-
-                is AlertDialog -> NavEntry(key) {
-                    ScreenAlertDialog()
-                }
-
-                is BottomSheet -> NavEntry(key) {
-                    ScreenBottomSheet()
-                }
-
-                is Snackbar -> NavEntry(key) {
-                    ScreenSnackbar()
-                }
-
-                is Tooltip -> NavEntry(key) {
-                    ScreenToolsTips(
-                        onBack = {
-                            onBack()
-                        }
-                    )
-                }
-
-                is Menu -> NavEntry(key) {
-                    ScreenMenu()
-                }
-
-                is NavigationDrawer -> NavEntry(key) {
-                    ScreenNavigationDrawer()
-                }
-
-                is BottomNavigationBar -> NavEntry(key) {
-                    ScreenBottomNavigationBar()
-                }
-
-                is BottomBarWithFloating -> NavEntry(key) {
-                    ScreenBottomBarWithFloating()
-                }
-
-                is CircleProgressIndicator -> NavEntry(key) {
-                    ScreenCircleProgressIndicator()
-                }
-
-                is Carousel -> NavEntry(key) {
-                    ScreenCarousel()
-                }
-
-                is DatePicker -> NavEntry(key) {
-                    ScreenDatePicker()
-                }
-
-                is Tabs -> NavEntry(key) {
-                    ScreenTabs()
-                }
-
-                is TextField -> NavEntry(key) {
-                    ScreenTextFiled()
-                }
-
-                is BottomBar -> NavEntry(key) {
-                    ScreenBottomBar()
-                }
-
-                is Account -> NavEntry(key) {
-                    ScreenAccount(
-                        onBack = {
-                            onBack()
-                        }
-                    )
-                }
-
-                is Invoice -> NavEntry(key) {
-                    ScreenInvoice(
-                        onBack = {
-                            onBack()
-                        }
-                    )
-                }
-
-                is UserApi -> NavEntry(key) {
-                    ScreenUserApi(
-                        onBack = {
-                            onBack()
-                        }
-                    )
-                }
-
-                is PostNotification -> NavEntry(key) {
-                    ScreenPostNotification(
-                        onBack = {
-                            onBack()
-                        }
-                    )
-                }
-
-                is SelectedSinglePhoto -> NavEntry(key) {
-                    ScreenSelectedSinglePhoto {
+            entry<Notification> {
+                ScreenNotification(
+                    onBack = {
                         onBack()
                     }
-                }
+                )
+            }
 
-                is SelectedMultiplePhotos -> NavEntry(key) {
-                    ScreenSelectedMultiplePhoto {
+            entry<CardView> {
+                ScreenCardView(
+                    onBack = {
                         onBack()
                     }
-                }
+                )
+            }
 
-                is SelectedSingleVideo -> NavEntry(key) {
-                    ScreenSelectedSingleVideo {
+            entry<Button> {
+                ScreenButton(
+                    onBack = {
                         onBack()
                     }
-                }
+                )
+            }
 
-                is SelectedMultipleVideo -> NavEntry(key) {
-                    ScreenSelectedMultipleVideo {
+            entry<CheckBox> {
+                ScreenCheckBox()
+            }
+
+            entry<Radio> {
+                ScreenRadio()
+            }
+
+            entry<Switch> {
+                ScreenSwitch()
+            }
+
+            entry<Slider> {
+                ScreenSlider()
+            }
+
+            entry<Chip> {
+                ScreenChip()
+            }
+
+            entry<Dialog> {
+                ScreenDialog()
+            }
+
+            entry<AlertDialog> {
+                ScreenAlertDialog()
+            }
+
+            entry<BottomSheet> {
+                ScreenBottomSheet()
+            }
+
+            entry<Snackbar> {
+                ScreenSnackbar()
+            }
+
+            entry<Tooltip> {
+                ScreenToolsTips(
+                    onBack = {
                         onBack()
                     }
-                }
+                )
+            }
 
-                is SelectedVideosAndPhotos -> NavEntry(key) {
-                    ScreenSelectedVideosAndPhotos {
+            entry<Menu> {
+                ScreenMenu()
+            }
+
+            entry<NavigationDrawer> {
+                ScreenNavigationDrawer()
+            }
+
+            entry<BottomNavigationBar> {
+                ScreenBottomNavigationBar()
+            }
+
+            entry<BottomBarWithFloating> {
+                ScreenBottomBarWithFloating()
+            }
+
+            entry<CircleProgressIndicator> {
+                ScreenCircleProgressIndicator()
+            }
+
+            entry<Carousel> {
+                ScreenCarousel()
+            }
+
+            entry<DatePicker> {
+                ScreenDatePicker()
+            }
+
+            entry<Tabs> {
+                ScreenTabs()
+            }
+
+            entry<TextField> {
+                ScreenTextFiled()
+            }
+
+            entry<BottomBar> {
+                ScreenBottomBar()
+            }
+
+            entry<Account> {
+                ScreenAccount(
+                    onBack = {
                         onBack()
                     }
-                }
+                )
+            }
 
-                is CameraLauncher -> NavEntry(key) {
-                    ScreenCameraLauncher {
+            entry<Invoice> {
+                ScreenInvoice(
+                    onBack = {
                         onBack()
                     }
-                }
+                )
+            }
 
-                is RoomDatabase -> NavEntry(key) {
-                    ScreenRoomDatabase(
-                        onBack = {
-                            onBack()
-                        },
-                        onCreateTask = {
-                            backStack.add(CreateTask())
-                        },
-                        onEditTask = { task ->
-                            backStack.add(CreateTask(task))
-                        }
-                    )
-                }
-
-                is CreateTask -> NavEntry(key) {
-                    ScreenCreateTask(taskData = key.task) {
+            entry<UserApi> {
+                ScreenUserApi(
+                    onBack = {
                         onBack()
                     }
-                }
+                )
+            }
 
-                else -> NavEntry(Unit) { Text("Unknown route") }
+            entry<PostNotification> {
+                ScreenPostNotification(
+                    onBack = {
+                        onBack()
+                    }
+                )
+            }
+
+            entry<SelectedSinglePhoto> {
+                ScreenSelectedSinglePhoto(
+                    onBack = {
+                        onBack()
+                    }
+                )
+            }
+
+            entry<SelectedMultiplePhotos> {
+                ScreenSelectedMultiplePhoto(
+                    onBack = {
+                        onBack()
+                    }
+                )
+            }
+
+            entry<SelectedSingleVideo> {
+                ScreenSelectedSingleVideo(
+                    onBack = {
+                        onBack()
+                    }
+                )
+            }
+
+            entry<SelectedMultipleVideo> {
+                ScreenSelectedMultipleVideo(
+                    onBack = {
+                        onBack()
+                    }
+                )
+            }
+
+            entry<SelectedVideosAndPhotos> {
+                ScreenSelectedVideosAndPhotos(
+                    onBack = {
+                        onBack()
+                    }
+                )
+            }
+
+            entry<CameraLauncher> {
+                ScreenCameraLauncher(
+                    onBack = {
+                        onBack()
+                    }
+                )
+            }
+
+            entry<RoomDatabase> {
+                ScreenRoomDatabase(
+
+                    onBack = {
+                        onBack()
+                    },
+                    onCreateTask = {
+                        backStack.add(CreateTask())
+                    },
+                    onEditTask = { task ->
+                        backStack.add(CreateTask(task))
+                    }
+                )
+            }
+
+            entry<CreateTask> { key ->
+                ScreenCreateTask(
+                    taskData = key.task,
+
+                    onBack = {
+                        onBack()
+                    }
+
+                )
             }
         }
     )
