@@ -13,6 +13,8 @@ android {
         minSdk = 29
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        missingDimensionStrategy("environment", "dev")
     }
 
     buildTypes {
@@ -40,7 +42,7 @@ dependencies {
     implementation(libs.material)
 
     // Retrofit
-    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.kotlinx.serialization)
 
     // Di
     implementation(libs.hilt.android)

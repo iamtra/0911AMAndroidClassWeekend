@@ -13,6 +13,8 @@ android {
         minSdk = 29
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        missingDimensionStrategy("environment", "dev")
     }
 
     buildTypes {
@@ -40,7 +42,7 @@ dependencies {
     implementation(libs.material)
 
     // Retrofit
-    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.logging.interceptor)
 
     // DI
@@ -48,7 +50,7 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.jakewharton.retrofit2.kotlinx.serialization.converter)
+//    implementation(libs.jakewharton.retrofit2.kotlinx.serialization.converter)
 
     // Room DB
     implementation(libs.androidx.room.runtime)
@@ -58,9 +60,8 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:model"))
     implementation(project(":core:util"))
-    implementation(project(":core:network"))
     implementation(project(":core:common"))
-
+    implementation(project(":core:network"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

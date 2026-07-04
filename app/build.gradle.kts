@@ -156,11 +156,12 @@ dependencies {
     implementation(libs.androidx.compose.foundation.layout)
 
     // Retrofit
-    implementation(libs.retrofit)
+    implementation(libs.retrofit.client)
+    implementation(libs.retrofit.converter.kotlinx.serialization)
 //    implementation(libs.converter.gson)
 //    implementation(libs.converter.kotlinx.serialization)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.jakewharton.retrofit2.kotlinx.serialization.converter)
+//    implementation(libs.jakewharton.retrofit2.kotlinx.serialization.converter)
 
     // Coroutines (for suspend functions)
     implementation(libs.kotlinx.coroutines.android)

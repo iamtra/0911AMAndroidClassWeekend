@@ -10,6 +10,8 @@ android {
         minSdk = 29
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        missingDimensionStrategy("environment", "dev")
     }
 
     buildTypes {
