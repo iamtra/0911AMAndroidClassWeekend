@@ -6,16 +6,18 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
-import androidx.navigation3.runtime.NavEntry
+import androidx.core.net.toUri
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.account.ScreenAccount
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.alertdialog.ScreenAlertDialog
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.androidxcamera.ScreenAndroidXCamera
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.androidxcamera.ScreenCameraView
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.androidxcamera.ScreenPreviewImage
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_bar.ScreenBottomBar
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_bar_with_floating.ScreenBottomBarWithFloating
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_navigation_bar.ScreenBottomNavigationBar
@@ -104,7 +106,7 @@ fun AppNavigation(route: String? = null) {
             )
         },
         entryProvider = entryProvider {
-            entry<Home> { key ->
+            entry<Home> {
                 ScreenHome(
                     onClickNotification = {
                         backStack.add(Notification)
@@ -333,6 +335,34 @@ fun AppNavigation(route: String? = null) {
                     onBack = {
                         onBack()
                     }
+                )
+            }
+            entry<AndroidXCamera> {
+                ScreenAndroidXCamera(
+                    onBack = {
+                        onBack()
+                    },
+                    onOpenCamera = {
+                        backStack.add(CameraAndroidPreview)
+                    }
+                )
+            }
+            entry<CameraAndroidPreview> {
+                ScreenCameraView(
+                    onClose = {
+                        onBack()
+                    },
+                    onImageCaptured = { imageUri ->
+                        backStack.add(PreviewImage(imageUri = imageUri.toString()))
+                    }
+                )
+            }
+            entry<PreviewImage> { key ->
+                ScreenPreviewImage(
+                    imageUri = key.imageUri.toUri(),
+                    onBack = {
+                        onBack()
+                    },
                 )
             }
         }

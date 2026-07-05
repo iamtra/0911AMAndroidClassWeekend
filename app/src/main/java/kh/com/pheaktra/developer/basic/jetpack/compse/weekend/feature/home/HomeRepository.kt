@@ -245,7 +245,14 @@ private val componentList = mutableListOf(
         message = "Access the device's current location using runtime permissions and the Fused Location Provider to retrieve latitude and longitude coordinates.",
         icon = "https://img.icons8.com/color/96/marker.png",
         key = GetLocation
-    )
+    ),
+    ComponentModel(
+        35,
+        "AndroidX Camera",
+        "Capture photos using CameraX with a custom camera preview, permission handling, and capture controls.",
+        "https://img.icons8.com/fluency/48/media-queries.png",
+        AndroidXCamera
+    ),
 )
 
 class HomeRepository {

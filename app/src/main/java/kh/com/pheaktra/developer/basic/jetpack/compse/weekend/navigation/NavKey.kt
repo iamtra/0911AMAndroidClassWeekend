@@ -1,5 +1,6 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.navigation
 
+import android.net.Uri
 import kh.com.pheaktra.developer.android.domain.model.TaskModel
 import kotlinx.serialization.Serializable
 
@@ -47,3 +48,10 @@ data object RoomDatabase
 data class CreateTask(val task: TaskModel? = null)
 
 data object GetLocation
+data object AndroidXCamera
+data object CameraAndroidPreview
+
+@Serializable
+data class PreviewImage(
+    val imageUri: String
+)

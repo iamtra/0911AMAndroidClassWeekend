@@ -13,8 +13,8 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend
  *  - Restructure navigation to standard navigation (Done)
  *
  *  4. July 05, 2026
- *  - GPS location
- *  - Camerax + runtime permission
+ *  - GPS location (Done)
+ *  - Androidx Camera + runtime permission
  *  - Get Wi-Fi state
  *  - fingerprint Sensor
  *  - Screen Density
