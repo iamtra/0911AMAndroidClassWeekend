@@ -238,6 +238,13 @@ private val componentList = mutableListOf(
         message = "Local SQLite database powered by Room for storing, querying, updating, and managing app data with reactive Flow support.",
         icon = "https://img.icons8.com/color/96/database.png",
         key = RoomDatabase
+    ),
+    ComponentModel(
+        id = 34,
+        title = "Get Location",
+        message = "Access the device's current location using runtime permissions and the Fused Location Provider to retrieve latitude and longitude coordinates.",
+        icon = "https://img.icons8.com/color/96/marker.png",
+        key = GetLocation
     )
 )
 

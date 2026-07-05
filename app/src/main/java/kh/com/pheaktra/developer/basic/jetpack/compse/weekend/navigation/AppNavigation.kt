@@ -31,6 +31,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.datepicker
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.dialog.ScreenDialog
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home.ScreenHome
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.invoice.ScreenInvoice
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.location.ScreenLocation
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedMultiplePhoto
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedMultipleVideo
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedSinglePhoto
@@ -325,6 +326,13 @@ fun AppNavigation(route: String? = null) {
                         onBack()
                     }
 
+                )
+            }
+            entry<GetLocation> {
+                ScreenLocation(
+                    onBack = {
+                        onBack()
+                    }
                 )
             }
         }

@@ -45,3 +45,5 @@ data object RoomDatabase
 
 @Serializable
 data class CreateTask(val task: TaskModel? = null)
+
+data object GetLocation

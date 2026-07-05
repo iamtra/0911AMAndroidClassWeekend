@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.pheaktra.developer.base.core"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 29

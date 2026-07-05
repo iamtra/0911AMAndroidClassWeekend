@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "kh.com.pheaktra.developer.basic.jetpack.compse.weekend"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "kh.com.pheaktra.developer.basic.jetpack.compse.weekend"
         minSdk = 29
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0.0"
 
@@ -185,6 +185,10 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.messaging)
+
+    // Play service Fused Location
+    implementation(libs.play.services.location)
+    implementation(libs.accompanist.permissions)
 
 
     // Implement local module
