@@ -20,8 +20,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -303,7 +301,10 @@ fun ScreenUserApi(
                 shape = RoundedCornerShape(0.dp),
                 containerColor = colorResource(R.color.purple_200),
                 icon = {
-                    Icon(Icons.Filled.Info, contentDescription = "Info Icon")
+                    Icon(
+                        painter = painterResource(R.drawable.ic_menu),
+                        contentDescription = "Info Icon"
+                    )
                 },
                 title = {
                     Text(text = "Delete Users")

@@ -11,9 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
@@ -64,7 +61,10 @@ fun ScreenButton(
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(imageVector = Icons.Default.Menu, contentDescription = null)
+                        Icon(
+                            painter = painterResource(R.drawable.ic_menu),
+                            contentDescription = null
+                        )
                     }
                 },
                 actions = {
@@ -79,7 +79,10 @@ fun ScreenButton(
                                 Text(text = "10")
                             }
                         }) {
-                        Icon(imageVector = Icons.Default.Settings, contentDescription = null)
+                        Icon(
+                            painter = painterResource(R.drawable.ic_menu),
+                            contentDescription = null
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -168,7 +171,10 @@ fun ScreenButton(
                     SegmentedButton(
                         selected = selectedIndex == index,
                         onClick = { selectedIndex = index },
-                        shape = SegmentedButtonDefaults.itemShape(index = index, count = options.size)
+                        shape = SegmentedButtonDefaults.itemShape(
+                            index = index,
+                            count = options.size
+                        )
                     ) {
                         Text(text = s)
                     }

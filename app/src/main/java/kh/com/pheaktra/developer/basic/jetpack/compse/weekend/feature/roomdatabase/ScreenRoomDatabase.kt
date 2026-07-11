@@ -14,8 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
@@ -53,7 +51,6 @@ import kh.com.pheaktra.developer.android.util.common.ValueYN
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatabase.bottmsheet.TaskActionBottomSheet
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenRoomDatabase(
     roomVM: RoomVM = viewModel(),
@@ -100,7 +97,12 @@ fun ScreenRoomDatabase(
                 onClick = {
                     onCreateTask()
                 },
-                icon = { Icon(Icons.Filled.Add, "Extended floating action button.") },
+                icon = {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_menu),
+                        contentDescription = "Extended floating action button."
+                    )
+                },
                 text = { Text(text = "New Task") },
             )
         }

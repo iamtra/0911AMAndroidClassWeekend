@@ -10,9 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.DatePicker
@@ -57,7 +54,7 @@ fun ScreenDatePicker() {
                         }
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Menu,
+                            painter = painterResource(R.drawable.ic_menu),
                             contentDescription = "Menu Icon"
                         )
                     }
@@ -99,7 +96,7 @@ fun ScreenDatePicker() {
                         }
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Settings,
+                            painter = painterResource(R.drawable.ic_menu),
                             contentDescription = "Settings Icon"
                         )
                     }

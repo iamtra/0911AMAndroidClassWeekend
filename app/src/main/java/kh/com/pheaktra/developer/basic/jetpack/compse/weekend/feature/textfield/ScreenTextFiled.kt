@@ -14,10 +14,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -48,7 +44,6 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 /**
  * Please practice detail
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenTextFiled() {
     var value by remember { mutableStateOf("") }
@@ -64,7 +59,7 @@ fun ScreenTextFiled() {
                         }
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Menu,
+                            painter = painterResource(R.drawable.ic_menu),
                             contentDescription = "Menu Icon"
                         )
                     }
@@ -139,7 +134,7 @@ fun ScreenTextFiled() {
                                 }
                             ) {
                                 Icon(
-                                    imageVector = Icons.Default.Clear,
+                                    painter = painterResource(R.drawable.ic_edit),
                                     contentDescription = "Icon user"
                                 )
                             }

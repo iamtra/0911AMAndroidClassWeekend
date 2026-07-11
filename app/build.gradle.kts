@@ -174,6 +174,7 @@ dependencies {
 
     // di
     implementation(libs.hilt.android)
+    implementation(libs.androidx.compose.remote.creation.core)
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
 

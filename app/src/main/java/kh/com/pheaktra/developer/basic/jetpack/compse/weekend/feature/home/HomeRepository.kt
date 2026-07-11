@@ -253,6 +253,21 @@ private val componentList = mutableListOf(
         "https://img.icons8.com/fluency/48/media-queries.png",
         AndroidXCamera
     ),
+    ComponentModel(
+        36,
+        "Internet State",
+        "Monitor internet connectivity in real time and detect when the device connects to or disconnects from the network.",
+        "https://img.icons8.com/color/96/wifi.png",
+        InternetStateChange
+    ),
+
+    ComponentModel(
+        37,
+        "Screen Information",
+        "Display detailed device screen information, including resolution, dimensions, density, physical size, aspect ratio, and brightness settings.",
+        "https://img.icons8.com/color/96/monitor.png",
+        DeviceScreenInformation
+    )
 )
 
 class HomeRepository {

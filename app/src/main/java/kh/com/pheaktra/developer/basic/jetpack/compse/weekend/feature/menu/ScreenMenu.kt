@@ -8,11 +8,6 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Send
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -31,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,7 +50,7 @@ fun ScreenMenu() {
                         }
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Menu,
+                            painter = painterResource(R.drawable.ic_menu),
                             contentDescription = "Menu Icon"
                         )
                     }
@@ -75,7 +71,7 @@ fun ScreenMenu() {
                         }
                     ) {
                         Icon(
-                            imageVector = Icons.Default.MoreVert,
+                            painter = painterResource(R.drawable.ic_menu),
                             contentDescription = "Menu Icon"
                         )
                         DropdownMenu(
@@ -88,13 +84,13 @@ fun ScreenMenu() {
                                 DropdownMenuItem(
                                     leadingIcon = {
                                         Icon(
-                                            imageVector = Icons.Default.Settings,
+                                            painter = painterResource(R.drawable.ic_setting),
                                             contentDescription = "Menu Icon"
                                         )
                                     },
                                     trailingIcon = {
                                         Icon(
-                                            imageVector = Icons.Default.Send,
+                                            painter = painterResource(R.drawable.ic_send),
                                             contentDescription = "Menu Icon"
                                         )
                                     },
