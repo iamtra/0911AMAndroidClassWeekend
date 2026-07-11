@@ -32,6 +32,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.circle_pro
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.datepicker.ScreenDatePicker
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.dialog.ScreenDialog
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home.ScreenHome
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.intenetstatechange.ScreenInternetStateChange
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.invoice.ScreenInvoice
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.location.ScreenLocation
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.mediapicker.ScreenSelectedMultiplePhoto
@@ -46,6 +47,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.postnotifi
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.radio.ScreenRadio
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatabase.ScreenCreateTask
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatabase.ScreenRoomDatabase
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.screenInfomation.ScreenDeviceScreenInformation
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.slider.ScreenSlider
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.snackbar.ScreenSnackbar
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.switch.ScreenSwitch
@@ -360,6 +362,22 @@ fun AppNavigation(route: String? = null) {
             entry<PreviewImage> { key ->
                 ScreenPreviewImage(
                     imageUri = key.imageUri.toUri(),
+                    onBack = {
+                        onBack()
+                    },
+                )
+            }
+
+            entry<InternetStateChange> { _ ->
+                ScreenInternetStateChange(
+                    onBack = {
+                        onBack()
+                    },
+                )
+            }
+
+            entry<DeviceScreenInformation> { _ ->
+                ScreenDeviceScreenInformation(
                     onBack = {
                         onBack()
                     },

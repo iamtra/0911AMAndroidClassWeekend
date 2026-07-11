@@ -14,9 +14,12 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend
  *
  *  4. July 05, 2026
  *  - GPS location (Done)
- *  - Androidx Camera + runtime permission
- *  - Get Wi-Fi state
+ *  - Androidx Camera + runtime permission (Done)
+ *  - Get Wi-Fi/Internet connection state (Done)
+ *  - Screen Density (Done)
  *  - fingerprint Sensor
- *  - Screen Density
+ *  * Broadcast receiver
  *  - Battery
+ *  - Airplane mode receiver
+ *  - Charging receiver
  */

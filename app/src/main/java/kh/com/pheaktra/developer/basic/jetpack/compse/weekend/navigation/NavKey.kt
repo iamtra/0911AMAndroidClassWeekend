@@ -55,3 +55,6 @@ data object CameraAndroidPreview
 data class PreviewImage(
     val imageUri: String
 )
+
+data object InternetStateChange
+data object DeviceScreenInformation
