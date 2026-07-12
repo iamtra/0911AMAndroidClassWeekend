@@ -60,3 +60,4 @@ data object InternetStateChange
 data object DeviceScreenInformation
 data object Biometric
 data object AirPlanMode
+data object Battery

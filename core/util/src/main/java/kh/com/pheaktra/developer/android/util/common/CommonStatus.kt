@@ -13,3 +13,11 @@ enum class AirplaneModeState {
     ON,
     OFF
 }
+
+enum class ChargingSource {
+    USB,
+    AC,
+    WIRELESS,
+    DOCK,
+    UNKNOWN
+}

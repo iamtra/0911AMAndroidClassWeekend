@@ -23,6 +23,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_bar
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_navigation_bar.ScreenBottomNavigationBar
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.bottom_sheet.ScreenBottomSheet
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.broadcast.ScreenAirPlanMode
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.broadcast.ScreenBattery
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.button.ScreenButton
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.camera.ScreenCameraLauncher
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.card.ScreenCardView
@@ -395,6 +396,13 @@ fun AppNavigation(route: String? = null) {
             }
             entry<AirPlanMode> { _ ->
                 ScreenAirPlanMode(
+                    onBack = {
+                        onBack()
+                    },
+                )
+            }
+            entry<Battery> { _ ->
+                ScreenBattery(
                     onBack = {
                         onBack()
                     },

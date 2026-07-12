@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,6 +21,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -29,72 +32,69 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
-import kh.com.pheaktra.developer.android.util.common.AirplaneModeState
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
-import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension.isAirplaneModeEnabled
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension.toBatteryState
 
+@RequiresApi(Build.VERSION_CODES.S)
 @Composable
-fun ScreenAirPlanMode(
-    onBack: () -> Unit
+fun ScreenBattery(
+    onBack: () -> Unit = {}
 ) {
     val context = LocalContext.current
-    val applicationContext = context.applicationContext
+    var batteryLevel by remember { mutableIntStateOf(100) }
+    var chargingStatus by remember { mutableStateOf(false) }
 
-    var airplaneModeState by remember {
-        mutableStateOf(
-            if (applicationContext.isAirplaneModeEnabled()) {
-                AirplaneModeState.ON
-            } else {
-                AirplaneModeState.OFF
-            }
-        )
-    }
-
-    DisposableEffect(applicationContext) {
+    DisposableEffect(context) {
         val receiver = object : BroadcastReceiver() {
+            @RequiresApi(Build.VERSION_CODES.S)
             override fun onReceive(
                 context: Context?,
                 intent: Intent?
             ) {
-                if (intent?.action != Intent.ACTION_AIRPLANE_MODE_CHANGED) {
+                if (intent?.action != Intent.ACTION_BATTERY_CHANGED) {
                     return
                 }
 
-                val isEnabled = intent.getBooleanExtra(
-                    "state",
-                    applicationContext.isAirplaneModeEnabled()
-                )
-
-                airplaneModeState = if (isEnabled) {
-                    AirplaneModeState.ON
-                } else {
-                    AirplaneModeState.OFF
-                }
+                val batteryState = intent.toBatteryState()
+                batteryLevel = batteryState.level
+                chargingStatus = batteryState.isCharging
             }
         }
 
-        val intentFilter = IntentFilter(
-            Intent.ACTION_AIRPLANE_MODE_CHANGED
+        val filter = IntentFilter(
+            Intent.ACTION_BATTERY_CHANGED
         )
 
-        ContextCompat.registerReceiver(
-            applicationContext,
-            receiver,
-            intentFilter,
-            ContextCompat.RECEIVER_EXPORTED
-        )
+        val initialBatteryIntent =
+            ContextCompat.registerReceiver(
+                context,
+                receiver,
+                filter,
+                ContextCompat.RECEIVER_EXPORTED
+            )
+
+        // ACTION_BATTERY_CHANGED is a sticky broadcast.
+        // This provides the current battery state immediately.
+        initialBatteryIntent?.let { intent ->
+            val batteryState = intent.toBatteryState()
+            batteryLevel = batteryState.level
+            chargingStatus = batteryState.isCharging
+        }
 
         onDispose {
-            applicationContext.unregisterReceiver(receiver)
+            runCatching {
+                context.unregisterReceiver(receiver)
+            }
         }
     }
+
     Scaffold(
         modifier = Modifier,
         topBar = {
             TopAppBar(
                 title = {
-                    Text("Airplane Mode")
+                    Text("Battery")
                 },
                 navigationIcon = {
                     IconButton(
@@ -118,35 +118,33 @@ fun ScreenAirPlanMode(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp)
-                    .padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                val status = when (airplaneModeState) {
-                    AirplaneModeState.ON -> {
-                        "Airplane mode is turned on"
-                    }
-                    AirplaneModeState.OFF -> {
-                        "Airplane mode is turned off"
-                    }
-                }
-                Text("Biometric status")
-                Text(status)
-            }
+            Item(label = "Battery Level", value = "$batteryLevel%")
+            val status = if (chargingStatus) "Charging" else "Not charging"
+            Item(label = "Charging Status", value = status)
         }
     }
 }
 
-@Preview
 @Composable
-fun ScreenAirPlanModePreview() {
+fun Item(label: String, value: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(48.dp)
+            .padding(horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(label)
+        Text(value)
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.S)
+@Composable
+@Preview
+fun ScreenBatteryPreview() {
     BaseTheme {
-        ScreenAirPlanMode(
-            onBack = {}
-        )
+        ScreenBattery()
     }
 }

@@ -47,6 +47,8 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
 
+    implementation(project(":core:util"))
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

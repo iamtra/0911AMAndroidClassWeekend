@@ -283,6 +283,14 @@ private val componentList = mutableListOf(
         "Monitor airplane mode changes in real time and detect when the user turns airplane mode on or off.",
         "https://img.icons8.com/color/96/airplane-mode-on.png",
         AirPlanMode
+    ),
+
+    ComponentModel(
+        40,
+        "Battery Broadcast",
+        "Monitor battery status changes in real time, including battery level, charging state, and power connection events.",
+        "https://img.icons8.com/color/96/battery-level.png",
+        Battery
     )
 )
 
