@@ -275,6 +275,14 @@ private val componentList = mutableListOf(
         "Detect fingerprint sensor availability, check biometric enrollment status, and verify whether fingerprint authentication is supported on the device.",
         "https://img.icons8.com/color/96/fingerprint.png",
         Biometric
+    ),
+
+    ComponentModel(
+        39,
+        "Airplane Mode Broadcast",
+        "Monitor airplane mode changes in real time and detect when the user turns airplane mode on or off.",
+        "https://img.icons8.com/color/96/airplane-mode-on.png",
+        AirPlanMode
     )
 )
 

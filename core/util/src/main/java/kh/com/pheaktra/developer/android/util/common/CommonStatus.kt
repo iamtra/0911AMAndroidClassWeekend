@@ -8,3 +8,8 @@ enum class ValueYN(val value: String) {
 enum class ConnectionState {
     Available, Unavailable
 }
+
+enum class AirplaneModeState {
+    ON,
+    OFF
+}

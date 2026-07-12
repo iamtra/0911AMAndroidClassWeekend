@@ -130,3 +130,11 @@ fun Context.getScreenInfo(): ScreenInfo {
 fun gcd(a: Int, b: Int): Int {
     return if (b == 0) a else gcd(b, a % b)
 }
+
+fun Context.isAirplaneModeEnabled(): Boolean {
+    return Settings.Global.getInt(
+        contentResolver,
+        Settings.Global.AIRPLANE_MODE_ON,
+        0
+    ) == 1
+}

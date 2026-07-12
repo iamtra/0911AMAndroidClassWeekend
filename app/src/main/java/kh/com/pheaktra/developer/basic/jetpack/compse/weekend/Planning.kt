@@ -17,9 +17,9 @@ package kh.com.pheaktra.developer.basic.jetpack.compse.weekend
  *  - Androidx Camera + runtime permission (Done)
  *  - Get Wi-Fi/Internet connection state (Done)
  *  - Screen Density (Done)
- *  - fingerprint Sensor
+ *  - fingerprint Sensor (Done )
  *  * Broadcast receiver
- *  - Battery
  *  - Airplane mode receiver
+ *  - Battery
  *  - Charging receiver
  */
