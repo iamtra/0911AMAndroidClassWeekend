@@ -58,3 +58,4 @@ data class PreviewImage(
 
 data object InternetStateChange
 data object DeviceScreenInformation
+data object Biometric

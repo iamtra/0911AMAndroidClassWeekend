@@ -31,6 +31,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.chip.Scree
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.circle_progress_indicator.ScreenCircleProgressIndicator
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.datepicker.ScreenDatePicker
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.dialog.ScreenDialog
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.fingerprint.ScreenBiometric
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home.ScreenHome
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.intenetstatechange.ScreenInternetStateChange
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.invoice.ScreenInvoice
@@ -378,6 +379,14 @@ fun AppNavigation(route: String? = null) {
 
             entry<DeviceScreenInformation> { _ ->
                 ScreenDeviceScreenInformation(
+                    onBack = {
+                        onBack()
+                    },
+                )
+            }
+
+            entry<Biometric> { _ ->
+                ScreenBiometric(
                     onBack = {
                         onBack()
                     },

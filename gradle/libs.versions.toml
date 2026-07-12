@@ -1,6 +1,7 @@
 [versions]
 accompanistPermissions = "0.37.3"
 agp = "9.1.1"
+biometricKtx = "1.4.0-alpha02"
 cameraXVersion = "1.5.0"
 coilCompose = "2.7.0"
 converterGson = "2.11.0"
@@ -46,6 +47,7 @@ remoteCreationCore = "1.0.0-alpha14"
 
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
+androidx-biometric-ktx = { module = "androidx.biometric:biometric-ktx", version.ref = "biometricKtx" }
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraXVersion" }
 androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraXVersion" }
 androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "cameraXVersion" }

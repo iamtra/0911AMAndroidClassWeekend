@@ -267,6 +267,14 @@ private val componentList = mutableListOf(
         "Display detailed device screen information, including resolution, dimensions, density, physical size, aspect ratio, and brightness settings.",
         "https://img.icons8.com/color/96/monitor.png",
         DeviceScreenInformation
+    ),
+
+    ComponentModel(
+        38,
+        "Fingerprint Sensor",
+        "Detect fingerprint sensor availability, check biometric enrollment status, and verify whether fingerprint authentication is supported on the device.",
+        "https://img.icons8.com/color/96/fingerprint.png",
+        Biometric
     )
 )
 

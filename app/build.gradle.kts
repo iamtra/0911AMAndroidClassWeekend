@@ -197,6 +197,11 @@ dependencies {
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
 
+    // fingerprint sensor
+    implementation(libs.androidx.biometric.ktx)
+    // App compat
+    implementation(libs.androidx.appcompat)
+
     // Implement local module
     implementation(project(":core"))
     implementation(project(":core:model"))
