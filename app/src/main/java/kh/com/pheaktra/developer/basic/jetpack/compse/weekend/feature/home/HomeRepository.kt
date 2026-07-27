@@ -19,7 +19,7 @@ private val componentList = mutableListOf(
         2,
         "Card View",
         "Display content inside elegant and reusable card layouts.",
-        "https://img.icons8.com/fluency/48/stack-of-cards.png",
+        "https://img.icons8.com/fluency/48/cards.png",
         CardView
     ),
     ComponentModel(
@@ -33,7 +33,7 @@ private val componentList = mutableListOf(
         4,
         "Radio Button",
         "Allow users to select one option from multiple choices.",
-        "https://img.icons8.com/fluency/48/radio-button.png",
+        "https://img.icons8.com/fluency/48/loading.png",
         Radio
     ),
     ComponentModel(
@@ -47,14 +47,14 @@ private val componentList = mutableListOf(
         6,
         "Slider",
         "Select values interactively using a customizable slider.",
-        "https://img.icons8.com/fluency/48/slider.png",
+        "https://img.icons8.com/fluency/48/loading.png",
         Slider
     ),
     ComponentModel(
         7,
         "Chip",
         "Compact elements for filtering, tags, and selections.",
-        "https://img.icons8.com/fluency/48/chips.png",
+        "https://img.icons8.com/fluency/48/loading.png",
         Chip
     ),
     ComponentModel(
@@ -117,7 +117,7 @@ private val componentList = mutableListOf(
         16,
         "Bottom Bar + FAB",
         "Combine bottom navigation with floating action buttons.",
-        "https://img.icons8.com/fluency/48/circled-plus.png",
+        "https://img.icons8.com/fluency/48/loading.png",
         BottomBarWithFloating
     ),
     ComponentModel(
@@ -289,7 +289,7 @@ private val componentList = mutableListOf(
         40,
         "Battery Broadcast",
         "Monitor battery status changes in real time, including battery level, charging state, and power connection events.",
-        "https://img.icons8.com/color/96/battery-level.png",
+        "https://img.icons8.com/color/96/battery.png",
         Battery
     )
 )

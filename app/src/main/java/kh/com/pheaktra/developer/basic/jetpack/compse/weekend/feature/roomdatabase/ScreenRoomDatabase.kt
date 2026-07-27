@@ -51,6 +51,7 @@ import kh.com.pheaktra.developer.android.util.common.ValueYN
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.roomdatabase.bottmsheet.TaskActionBottomSheet
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenRoomDatabase(
     roomVM: RoomVM = viewModel(),
@@ -86,9 +87,11 @@ fun ScreenRoomDatabase(
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    actionIconContentColor = Color.Blue,
-                    titleContentColor = Color.DarkGray
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer
                 )
             )
         },

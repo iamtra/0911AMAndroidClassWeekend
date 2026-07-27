@@ -14,6 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -44,6 +45,7 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 /**
  * Please practice detail
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenTextFiled() {
     var value by remember { mutableStateOf("") }
@@ -78,9 +80,11 @@ fun ScreenTextFiled() {
 
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = colorResource(R.color.purple_200),
-                    actionIconContentColor = Color.Blue,
-                    titleContentColor = Color.DarkGray
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer
                 )
             )
         },

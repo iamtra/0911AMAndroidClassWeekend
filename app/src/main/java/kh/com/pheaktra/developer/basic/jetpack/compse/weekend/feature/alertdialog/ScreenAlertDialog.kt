@@ -17,6 +17,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -39,6 +40,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -74,9 +76,11 @@ fun ScreenAlertDialog() {
 
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = colorResource(R.color.purple_200),
-                    actionIconContentColor = Color.Blue,
-                    titleContentColor = Color.DarkGray
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer
                 )
             )
         },
@@ -115,7 +119,10 @@ fun ScreenAlertDialog() {
                     shape = RoundedCornerShape(0.dp),
                     containerColor = colorResource(R.color.purple_200),
                     icon = {
-                        Icon(painter = painterResource(R.drawable.ic_notifications_none), contentDescription = "Info Icon")
+                        Icon(
+                            painter = painterResource(R.drawable.ic_notifications_none),
+                            contentDescription = "Info Icon"
+                        )
                     },
                     title = {
                         Text(text = "Delete Users")
@@ -130,7 +137,11 @@ fun ScreenAlertDialog() {
                         TextButton(
                             onClick = {
                                 isShow = false
-                                val toast = Toast.makeText(context, "User delete successfully.", Toast.LENGTH_SHORT)
+                                val toast = Toast.makeText(
+                                    context,
+                                    "User delete successfully.",
+                                    Toast.LENGTH_SHORT
+                                )
                                 toast.show()
                             }
                         ) {
@@ -152,5 +163,7 @@ fun ScreenAlertDialog() {
 @Preview(showBackground = true)
 @Composable
 fun ScreenAlertDialogPreview() {
-    ScreenAlertDialog()
+    BaseTheme {
+        ScreenAlertDialog()
+    }
 }

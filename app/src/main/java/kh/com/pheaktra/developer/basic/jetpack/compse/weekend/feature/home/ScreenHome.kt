@@ -1,6 +1,7 @@
 package kh.com.pheaktra.developer.basic.jetpack.compse.weekend.feature.home
 
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,6 +18,7 @@ import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -42,9 +44,9 @@ import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.BaseUiState
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.LoadingUtil
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.SystemBarController
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenHome(
     homeVM: HomeVM = HomeVM(),
@@ -84,6 +86,7 @@ fun ScreenHome(
                         Toast.makeText(context, "Compose is on resume", Toast.LENGTH_SHORT).show()
                     }
                 }
+
                 else -> {}
             }
         }
@@ -95,15 +98,26 @@ fun ScreenHome(
         }
     }
 
+    SystemBarController(
+        useDarkStatusBarIcons = false,
+        useDarkNavigationBarIcons = false
+    )
 
     Scaffold(
         modifier = Modifier
             .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             LargeTopAppBar(
+                navigationIcon = {
+                    Icon(
+                        modifier = Modifier.size(48.dp),
+                        painter = painterResource(R.drawable.ic_camera),
+                        contentDescription = null,
+                    )
+                },
                 title = {
                     Text(
-                        "Settings",
+                        text = "Mater Android 9-11AM",
                         style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.Normal
                     )
@@ -119,9 +133,12 @@ fun ScreenHome(
                     }
                 },
                 scrollBehavior = scrollBehavior,
-                colors = TopAppBarDefaults.largeTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    scrolledContainerColor = MaterialTheme.colorScheme.primary
                 )
             )
         },
@@ -142,19 +159,8 @@ fun ScreenHome(
                     }
                     itemsIndexed(state.data) { index, item ->
                         ListItem(
-                            headlineContent = {
-                                Text(
-                                    text = item.title,
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Medium
-                                )
-                            },
-                            supportingContent = {
-                                Text(
-                                    text = item.message,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
+                            modifier = Modifier.clickable {
+                                onClickItem(item.key)
                             },
                             leadingContent = {
                                 AsyncImage(
@@ -165,12 +171,26 @@ fun ScreenHome(
                                         .size(24.dp)
                                 )
                             },
-                            modifier = Modifier.clickable {
-                                onClickItem(item.key)
+                            trailingContent = null,
+                            overlineContent = null,
+                            supportingContent = {
+                                Text(
+                                    text = item.message,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
                             },
                             colors = ListItemDefaults.colors(
                                 containerColor = Color.Transparent
-                            )
+                            ),
+                            elevation = ListItemDefaults.elevation(ListItemDefaults.Elevation),
+                            content = {
+                                Text(
+                                    text = item.title,
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            },
                         )
                         if (index < state.data.size - 1) {
                             HorizontalDivider(

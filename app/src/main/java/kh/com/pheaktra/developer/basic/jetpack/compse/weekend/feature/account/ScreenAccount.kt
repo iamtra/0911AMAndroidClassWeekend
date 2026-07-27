@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.R
 import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.model.base.DashboardModel
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.ui.theme.BaseTheme
 
 @Composable
 fun ScreenAccount(
@@ -132,7 +133,11 @@ fun TopbarAccount(
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+            containerColor = MaterialTheme.colorScheme.primary,
+            actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
+            titleContentColor = MaterialTheme.colorScheme.onPrimary,
+            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+            scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer
         )
     )
 }
@@ -275,7 +280,9 @@ fun AccountComponent(account: BankAccountModel) {
 @Preview
 @Composable
 fun ScreenAccountPreview() {
-    ScreenAccount()
+    BaseTheme {
+        ScreenAccount()
+    }
 }
 
 enum class AccountTypeCode(val code: String) {
